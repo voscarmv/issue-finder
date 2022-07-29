@@ -1,0 +1,11 @@
+export const DISMISS = 'DISMISS';
+export const DISMISS_SUBJECT = 'DISMISS_SUBJECT';
+export const DISMISS_APPOINTMENT = 'DISMISS_APPOINTMENT';
+export const UPDATE_FILTER = 'UPDATE_FILTER';
+export const ALERT_MESSAGE = 'ALERT_MESSAGE';
+export const AUTH_KEY = 'AUTH_KEY';
+export const AUTH_CLEAR = 'AUTH_CLEAR';
+export const UPDATE_SUBJECT = 'UPDATE_SUBJECT';
+export const FETCH_REQUEST = 'FETCH_REQUEST';
+export const FETCH_SUCCESS = 'FETCH_SUCCESS';
+export const FETCH_ERROR = 'FETCH_ERROR';
