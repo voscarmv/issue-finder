@@ -1,12 +1,22 @@
 import { combineReducers } from 'redux';
-import alertReducer from './alert';
-import authReducer from './auth';
-import subjectDisplayReducer from './subjectdisplay';
-import fetchReducer from './rfetch';
 
-export default combineReducers({
-  alertState: alertReducer,
-  authState: authReducer,
-  subjectDisplayState: subjectDisplayReducer,
-  fetchState: fetchReducer,
+const initialState = null;
+
+function response(state = initialState, action) {
+  switch (action.type) {
+    case 'LOADING':
+      return 'Loading...';
+    case 'SUCCESS':
+      return action.payload;
+    case 'ERROR':
+      return action.error;
+  default:
+    return state;
+  }
+}
+
+const rootReducer = combineReducers({
+  response
 });
+
+export default rootReducer;
