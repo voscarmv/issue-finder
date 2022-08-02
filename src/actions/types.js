@@ -1,15 +1,11 @@
-const CREATE = 'CREATE';
-const READ = 'READ';
-const UPDATE = 'UPDATE';
-const DELETE = 'DELETE';
-const LIST = 'LIST';
+const LOADING = 'LOADING';
+const SUCCESS = 'SUCCESS';
+const ERROR = 'ERROR';
 
 const types = {
-  CREATE,
-  READ,
-  UPDATE,
-  DELETE,
-  LIST,
+    LOADING,
+    SUCCESS,
+    ERROR,
 };
 
 export default types;

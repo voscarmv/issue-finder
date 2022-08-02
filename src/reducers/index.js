@@ -1,14 +1,15 @@
 import { combineReducers } from 'redux';
+import types from '../actions/types';
 
 const initialState = null;
 
 function response(state = initialState, action) {
   switch (action.type) {
-    case 'LOADING':
+    case types.LOADING:
       return 'Loading...';
-    case 'SUCCESS':
+    case types.SUCCESS:
       return action.payload;
-    case 'ERROR':
+    case types.ERROR:
       return action.error;
   default:
     return state;
