@@ -16,8 +16,6 @@ function response(state = initialState, action) {
   }
 }
 
-const rootReducer = combineReducers({
-  response
-});
-
-export default rootReducer;
+export default combineReducers({
+  responseStore: response,
+});;
