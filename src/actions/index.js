@@ -1,5 +1,5 @@
-import fetch from 'node-fetch';
 import types from './types';
+import sieveIssues from './api';
 
 export const create = (record) => ({
   type: types.CREATE,
@@ -37,25 +37,18 @@ export const fetchIssues = data => async dispatch => {
     type: 'LOADING',
   });
   try {
-    const getAppointment = await fetch(
-      'https://api.github.com/repos/chatwoot/chatwoot/issues',
-      {
-        method: 'GET',
-        headers: {
-          'content-type': 'application/json',
-        },
-      },
-    );
-
-    if (getAppointment.status !== 200) {
-      throw getAppointment.statusText;
-    }
+    // As an example
+    const getAppointment = sieveIssues('org/repo', 'filters');
+    
+    console.log('This is the RESULT: ', getAppointment);
 
     const appointmentJSON = await getAppointment.json();
+    
     dispatch({
       type: 'SUCCESS',
       payload: JSON.stringify(appointmentJSON),
     });
+
   } catch (e) {
     dispatch({
       type: 'ERROR',
