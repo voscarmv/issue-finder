@@ -1,3 +1,4 @@
 // Api calls to github https://docs.github.com/en/rest/issues/issues
 
 // fetchIssues('org/repo', 'filters');
+// sample url to search repo issue by label - https://api.github.com/repos/chatwoot/chatwoot/issues?labels=good%20first%20issue
