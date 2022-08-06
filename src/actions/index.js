@@ -1,21 +1,25 @@
 // import fetch from 'node-fetch';
-import types from './types';
-import * as api from '../api'
+import * as api from "../api";
+import {
+  GET_ISSUES_REQUEST,
+  GET_ISSUES_SUCCESS,
+  GET_ISSUES_FAIL,
+} from "../constants/issueConstants.js";
 
-export const getIssues = (org,repo,label) => async dispatch => {
+export const getIssues = (org, repo, label) => async (dispatch) => {
   dispatch({
-    type: types.LOADING,
+    type: GET_ISSUES_REQUEST,
   });
   try {
-    const {data} = await api.fetchIssues(org,repo,label)
+    const { data } = await api.fetchIssues(org, repo, label);
     console.log(data);
     dispatch({
-      type: types.SUCCESS,
-      payload: JSON.stringify(data),
+      type: GET_ISSUES_SUCCESS,
+      payload: data,
     });
   } catch (e) {
     dispatch({
-      type: types.ERROR,
+      type: GET_ISSUES_FAIL,
       error: e.message,
     });
   }

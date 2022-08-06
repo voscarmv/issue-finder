@@ -1,16 +1,29 @@
 import { combineReducers } from 'redux';
-import types from '../actions/types';
+import {
+  GET_ISSUES_REQUEST,
+  GET_ISSUES_SUCCESS,
+  GET_ISSUES_FAIL,
+} from "../constants/issueConstants.js";
 
-const initialState = null;
 
-function response(state = initialState, action) {
+
+function response(state = {}, action) {
   switch (action.type) {
-    case types.LOADING:
-      return 'Loading...';
-    case types.SUCCESS:
-      return action.payload;
-    case types.ERROR:
-      return action.error;
+    case GET_ISSUES_REQUEST:
+      return {
+        ...state,
+        loading:true,
+      };
+    case GET_ISSUES_SUCCESS:
+      return {
+        loading:false,
+        reposlist:action.payload
+      };
+    case GET_ISSUES_FAIL:
+      return {
+        loading:false,
+        error:action.error
+      };
   default:
     return state;
   }
