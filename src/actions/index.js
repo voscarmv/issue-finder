@@ -2,13 +2,12 @@
 import types from './types';
 import * as api from '../api'
 
-export const getIssues = (info) => async dispatch => {
-  console.log(info);
+export const getIssues = (org,repo,label) => async dispatch => {
   dispatch({
     type: types.LOADING,
   });
   try {
-    const {data} = await api.fetchIssues('chatwoot','chatwoot','good first issue')
+    const {data} = await api.fetchIssues(org,repo,label)
     console.log(data);
     dispatch({
       type: types.SUCCESS,

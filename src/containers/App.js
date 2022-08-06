@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 function App() {
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(getIssues("some data"))
+    dispatch(getIssues("chatwoot","chatwoot","good first issue"))
   })
   return (
     <div className="App">
