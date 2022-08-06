@@ -1,8 +1,15 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getIssues } from '../actions'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 
 function App() {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getIssues("some data"))
+  })
   return (
     <div className="App">
       <header className="App-header">

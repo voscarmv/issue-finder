@@ -18,4 +18,4 @@ function response(state = initialState, action) {
 
 export default combineReducers({
   responseStore: response,
-});;
+});

@@ -1,7 +1,7 @@
-import fetch from 'node-fetch';
+// import fetch from 'node-fetch';
 import types from './types';
 
-export const fetchIssues = data => async dispatch => {
+export const getIssues = (data) => async dispatch => {
   console.log(data);
   dispatch({
     type: types.LOADING,
