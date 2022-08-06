@@ -1,30 +1,18 @@
 // import fetch from 'node-fetch';
 import types from './types';
+import * as api from '../api'
 
-export const getIssues = (data) => async dispatch => {
-  console.log(data);
+export const getIssues = (info) => async dispatch => {
+  console.log(info);
   dispatch({
     type: types.LOADING,
   });
   try {
-    const getAppointment = await fetch(
-      'https://api.github.com/repos/chatwoot/chatwoot/issues',
-      {
-        method: 'GET',
-        headers: {
-          'content-type': 'application/json',
-        },
-      },
-    );
-
-    if (getAppointment.status !== 200) {
-      throw getAppointment.statusText;
-    }
-
-    const appointmentJSON = await getAppointment.json();
+    const {data} = await api.fetchIssues('chatwoot','chatwoot','good first issue')
+    console.log(data);
     dispatch({
       type: types.SUCCESS,
-      payload: JSON.stringify(appointmentJSON),
+      payload: JSON.stringify(data),
     });
   } catch (e) {
     dispatch({
