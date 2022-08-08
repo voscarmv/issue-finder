@@ -4,10 +4,14 @@ import {
   GET_ISSUES_SUCCESS,
   GET_ISSUES_FAIL,
 } from "../constants/issueConstants.js";
+// NOTE: Split label and issue reducers in separate files
+import {
+  GET_LABELS_REQUEST,
+  GET_LABELS_SUCCESS,
+  GET_LABELS_FAIL,
+} from "../constants/labelConstants.js";
 
-
-
-function response(state = {}, action) {
+function issue(state = {}, action) {
   switch (action.type) {
     case GET_ISSUES_REQUEST:
       return {
@@ -17,7 +21,7 @@ function response(state = {}, action) {
     case GET_ISSUES_SUCCESS:
       return {
         loading:false,
-        reposlist:action.payload
+        labelslist: [...new Set(action.payload)]
       };
     case GET_ISSUES_FAIL:
       return {
@@ -29,6 +33,29 @@ function response(state = {}, action) {
   }
 }
 
+function label(state = {}, action){
+  switch (action.type) {
+    case GET_LABELS_REQUEST:
+      return {
+        ...state,
+        loading:true,
+      };
+    case GET_LABELS_SUCCESS:
+      return {
+        loading:false,
+        reposlist:action.payload
+      };
+    case GET_LABELS_FAIL:
+      return {
+        loading:false,
+        error:action.error
+      };
+  default:
+    return state;
+  }
+};
+
 export default combineReducers({
-  responseStore: response,
+  issueStore: issue,
+  labelStore: label
 });
