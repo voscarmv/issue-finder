@@ -21,7 +21,7 @@ function issue(state = {}, action) {
     case GET_ISSUES_SUCCESS:
       return {
         loading:false,
-        labelslist: [...new Set(action.payload)]
+        labelslist: action.payload
       };
     case GET_ISSUES_FAIL:
       return {
@@ -43,7 +43,7 @@ function label(state = {}, action){
     case GET_LABELS_SUCCESS:
       return {
         loading:false,
-        reposlist:action.payload
+        reposlist: [...new Set(action.payload)]
       };
     case GET_LABELS_FAIL:
       return {
