@@ -12,7 +12,7 @@ const API = axios.create(
         baseURL: 'https://api.github.com',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `token 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`
+            'Authorization': `token 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`
         }
     }
 );
@@ -22,15 +22,11 @@ const fetchRepos = async () => await axios.get('https://raw.githubusercontent.co
 const fetchLabels = async (org, repo) => await API.get(`/repos/${org}/${repo}/labels`);
 export const rawLabels = async () => {
     const repos = await fetchRepos();
-    const reposJson = await repos.json();
-    console.log(repos);
     const raw = [];
-    reposJson.forEach(
+    repos.data.forEach(
         async (item) => {
             const labels = await fetchLabels(item.org, item.repo);
-            const labelsJson = await labels.json();
-            console.log(labels);
-            labelsJson.forEach(
+            labels.data.forEach(
                 (label) => {
                     raw.push(label.name);
                 }
