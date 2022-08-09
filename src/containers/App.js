@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 
 function App() {
   const dispatch = useDispatch()
+  console.log(process.env.REACT_APP_API_KEY)
   useEffect(() => {
     dispatch(getIssues("chatwoot","chatwoot","good first issue"))
   });

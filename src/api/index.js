@@ -12,7 +12,7 @@ const API = axios.create(
         baseURL: 'https://api.github.com',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `token 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`
+            'Authorization': `token ${process.env.REACT_APP_API_KEY}`
         }
     }
 );
