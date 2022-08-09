@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getIssues } from '../actions'
+import { getIssues, getLabels } from '../actions'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
@@ -9,7 +9,10 @@ function App() {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getIssues("chatwoot","chatwoot","good first issue"))
-  })
+  });
+  useEffect(() => {
+    dispatch(getLabels())
+  });
   return (
     <div className="App">
       <header className="App-header">
