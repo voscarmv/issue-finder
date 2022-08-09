@@ -33,7 +33,6 @@ export const rawLabels = async () => {
             );
         }
     );
-    console.log(raw);
     return raw;
 };
 /* ************* */

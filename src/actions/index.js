@@ -37,7 +37,6 @@ export const getLabels = () => async (dispatch) => {
   });
   try {
     const data = await api.rawLabels();
-    console.log(data);
     dispatch({
       type: GET_LABELS_SUCCESS,
       payload: data,
