@@ -17,7 +17,6 @@ const API = axios.create(
     }
 );
 
-/* Untested, but this is what I want */
 const fetchRepos = async () => await axios.get('https://raw.githubusercontent.com/voscarmv/ycombinator_githubs/main/06_repos.json');
 const fetchLabels = async (org, repo) => await API.get(`/repos/${org}/${repo}/labels`);
 export const rawLabels = async () => {
@@ -35,5 +34,4 @@ export const rawLabels = async () => {
     );
     return raw;
 };
-/* ************* */
 export const fetchIssues = async (org, repo, label) => await API.get(`/repos/${org}/${repo}/issues?labels=${label}`);
