@@ -1,31 +1,21 @@
 // import fetch from 'node-fetch';
 import * as api from "../api";
-import {
-  GET_ISSUES_REQUEST,
-  GET_ISSUES_SUCCESS,
-  GET_ISSUES_FAIL,
-} from "../constants/issueConstants.js";
-
-import {
-  GET_LABELS_REQUEST,
-  GET_LABELS_SUCCESS,
-  GET_LABELS_FAIL,
-} from "../constants/labelConstants.js";
+import types from "./types";
 
 export const getIssues = (org, repo, label) => async (dispatch) => {
   dispatch({
-    type: GET_ISSUES_REQUEST,
+    type: types.GET_ISSUES_LOADING
   });
   try {
     const { data } = await api.fetchIssues(org, repo, label);
     console.log(data);
     dispatch({
-      type: GET_ISSUES_SUCCESS,
+      type: types.GET_ISSUES_SUCCESS,
       payload: data,
     });
   } catch (e) {
     dispatch({
-      type: GET_ISSUES_FAIL,
+      type: types.GET_ISSUES_ERROR,
       error: e.message,
     });
   }
@@ -33,17 +23,17 @@ export const getIssues = (org, repo, label) => async (dispatch) => {
 
 export const getLabels = () => async (dispatch) => {
   dispatch({
-    type: GET_LABELS_REQUEST,
+    type: types.GET_LABELS_LOADING,
   });
   try {
     const data = await api.rawLabels();
     dispatch({
-      type: GET_LABELS_SUCCESS,
+      type: types.GET_LABELS_SUCCESS,
       payload: data,
     });
   } catch (e) {
     dispatch({
-      type: GET_LABELS_FAIL,
+      type: types.GET_LABELS_ERROR,
       error: e.message,
     });
   }
