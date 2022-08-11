@@ -1,6 +1,31 @@
+li {
+  list-style-type: none;
+}
+
+input {
+  display: inline;
+  width: 1.5em;
+  height: 1.5em;
+}
+
+label {
+  font-size: 1.5em;
+  width: 12em;
+  justify-content: center;
+  border: 1px solid black;
+}
+
+.labelCont {
+  border: 2px solid black;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
 .App {
   text-align: center;
-  
 }
 
 .github-source {
