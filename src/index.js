@@ -8,7 +8,7 @@ import Labels from './components/labels';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-    <App />
+    {/* <App /> */}
     <Labels />
   </Provider>
 );
