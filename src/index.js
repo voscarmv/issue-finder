@@ -4,12 +4,14 @@ import { Provider } from 'react-redux';
 import store from './store'
 import App from './containers/App';
 import Labels from './components/Labels';
+import Issues from './components/Issues';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
     <App />
     <Labels />
+    <Issues />
   </Provider>
 );
 
