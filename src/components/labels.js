@@ -10,7 +10,7 @@ const Labels = () => {
     <div>
       <h1 className="filter-title">Filter results</h1>
       <ul className="labelCont">
-        {labelslist.map((label) => (
+        {labelslist ? (labelslist.map((label) => (
           <li>
             <label>
               <input
@@ -20,7 +20,13 @@ const Labels = () => {
               <code>{label}</code>
             </label>
           </li>
-        ))}
+        ))):<li>
+        <label>
+        <div class="spinner-border m-5" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+        </label>
+      </li> }
       </ul>
     </div>
   );
