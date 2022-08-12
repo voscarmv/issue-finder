@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getIssues, getLabels } from '../actions'
+import { getRepos } from '../actions'
+import { SearchEngine } from './searchEngine';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
@@ -9,17 +10,21 @@ function App() {
   const dispatch = useDispatch()
   console.log(process.env.REACT_APP_API_KEY)
   useEffect(() => {
-    dispatch(getIssues("chatwoot","chatwoot","good first issue"))
-  });
-  useEffect(() => {
-    dispatch(getLabels())
-  });
+      dispatch(getRepos());
+    },
+    // eslint-disable-next-line
+    []
+  );
   return (
     <div className="App">
       <header className="App-header">
         <p>
           Welcome to <code className="App-title">Issue Finder!</code>
         </p>
+        <br></br>
+        <br></br>
+        <br></br>
+        < SearchEngine />
         <code>Coming Soon...</code>
         <em class='text-sm text-success w-80 mt-3'>"The function of Issue Finder is to search for skill appropriate, current Open Source Repositories that make your contributions stand out from other hires and YOU a must-have for hiring mangers!"</em>
         <br />
