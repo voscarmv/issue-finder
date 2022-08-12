@@ -70,3 +70,10 @@ export const addToSelectIssues = (labels) => (dispatch) => {
     payload:labels
   })
 }
+
+export const removeFromSelectIssues = (labels) => (dispatch) => {
+  dispatch({
+    type: REMOVE_FROM_SELECT_ISSUES,
+    payload:labels
+  })
+}
