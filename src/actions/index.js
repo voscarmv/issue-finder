@@ -2,6 +2,7 @@ import * as api from "../api";
 import * as issue from "../constants/issueConstants"
 import * as label from "../constants/labelConstants"
 import * as repo from "../constants/reposConstants"
+import {ADD_TO_SELECT_ISSUES, REMOVE_FROM_SELECT_ISSUES} from '../constants/selectIssuesConstants'
 
 export const getIssues = (org, repo, label) => async (dispatch) => {
   dispatch({
@@ -62,3 +63,10 @@ export const getRepos = () => async (dispatch) => {
     });
   }
 };
+
+export const addToSelectIssues = (labels) => (dispatch) => {
+  dispatch({
+    type: ADD_TO_SELECT_ISSUES,
+    payload:labels
+  })
+}
