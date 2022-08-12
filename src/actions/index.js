@@ -23,23 +23,26 @@ export const getIssues = (org, repo, label) => async (dispatch) => {
 };
 
 export const getLabels = (repos) => async (dispatch) => {
+  if(repos === undefined) return;
+  console.log("Hello world");
   console.log(`inside getLabels ${JSON.stringify(repos)}`);
-  // dispatch({
-  //   type: label.GET_LABELS_REQUEST,
-  // });
-  // try {
-  //   const data = await api.rawLabels(repos);
-  //   dispatch({
-  //     type: label.GET_LABELS_SUCCESS,
-  //     payload: data,
-  //   });
-  // } catch (e) {
-  //   console.log(e.message);
-  //   dispatch({
-  //     type: label.GET_LABELS_FAIL,
-  //     error: e.message,
-  //   });
-  // }
+  dispatch({
+    type: label.GET_LABELS_REQUEST,
+  });
+  try {
+    const data = await api.rawLabels(repos);
+    console.log(`inside getLabels 2 ${data}`);
+    dispatch({
+      type: label.GET_LABELS_SUCCESS,
+      payload: data,
+    });
+  } catch (e) {
+    console.log(`getlabels error ${e.message}`);
+    dispatch({
+      type: label.GET_LABELS_FAIL,
+      error: e.message,
+    });
+  }
 };
 
 export const getRepos = () => async (dispatch) => {

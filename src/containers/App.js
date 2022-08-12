@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { getRepos } from '../actions'
 import { SearchEngine } from './searchEngine';
 import './App.css';
@@ -8,7 +8,6 @@ import Button from 'react-bootstrap/Button';
 
 function App() {
   const dispatch = useDispatch()
-  const repos = useSelector(state => state.reposStore);
   console.log(process.env.REACT_APP_API_KEY)
   useEffect(() => {
       dispatch(getRepos());
@@ -22,7 +21,6 @@ function App() {
         <p>
           Welcome to <code className="App-title">Issue Finder!</code>
         </p>
-        {JSON.stringify(repos)}
         <br></br>
         <br></br>
         <br></br>
