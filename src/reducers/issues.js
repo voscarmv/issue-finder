@@ -12,12 +12,20 @@ export default function issues(state = {}, action) {
           loading:true,
         };
       case GET_ISSUES_SUCCESS:
-        return {
-          loading:false,
-          issuesList: action.payload
-        };
+        if(state.issuesList){
+          return {
+            loading:false,
+            issuesList: [...state.issuesList,action.payload]
+          };
+        } else {
+          return {
+            loading:false,
+            issuesList: [action.payload]
+          };
+        }
       case GET_ISSUES_FAIL:
         return {
+          ...state,
           loading:false,
           error:action.error
         };
