@@ -10,23 +10,27 @@ const Labels = () => {
     <div>
       <h1 className="filter-title">Filter results</h1>
       <ul className="labelCont">
-        {labelslist ? (labelslist.map((label) => (
+        {labelslist ? (
+          labelslist.map((label, i) => (
+            <li key={i}>
+              <label>
+                <input
+                  type="checkbox"
+                  onClick={(e) => console.log(label, e.target.checked)}
+                />
+                <code>{label}</code>
+              </label>
+            </li>
+          ))
+        ) : (
           <li>
             <label>
-              <input
-                type="checkbox"
-                onClick={(e) => console.log(label, e.target.checked)}
-              />
-              <code>{label}</code>
+              <div class="spinner-border m-5" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
             </label>
           </li>
-        ))):<li>
-        <label>
-        <div class="spinner-border m-5" role="status">
-  <span class="sr-only">Loading...</span>
-</div>
-        </label>
-      </li> }
+        )}
       </ul>
     </div>
   );
