@@ -14,7 +14,7 @@ export default function issues(state = {}, action) {
       case GET_ISSUES_SUCCESS:
         return {
           loading:false,
-          labelslist: action.payload
+          issuesList: action.payload
         };
       case GET_ISSUES_FAIL:
         return {
