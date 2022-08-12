@@ -17,21 +17,22 @@ const API = axios.create(
     }
 );
 
-const fetchRepos = async () => await axios.get('https://raw.githubusercontent.com/voscarmv/ycombinator_githubs/main/06_repos.json');
-const fetchLabels = async (org, repo) => await API.get(`/repos/${org}/${repo}/labels`);
-export const rawLabels = async () => {
-    const repos = await fetchRepos();
+export const fetchRepos = async () => await axios.get('https://raw.githubusercontent.com/voscarmv/ycombinator_githubs/main/06_repos.json');
+//const fetchLabels = async (org, repo) => await API.get(`/repos/${org}/${repo}/labels`);
+export const rawLabels = async (repos) => {
+    // const repos = await fetchRepos();
+    console.log(`from inside rawLabels ${JSON.stringify(repos)}`);
     const raw = [];
-    repos.data.forEach(
-        async (item) => {
-            const labels = await fetchLabels(item.org, item.repo);
-            labels.data.forEach(
-                (label) => {
-                    raw.push(label.name);
-                }
-            );
-        }
-    );
+    // repos.data.forEach(
+    //     async (item) => {
+    //         const labels = await fetchLabels(item.org, item.repo);
+    //         labels.data.forEach(
+    //             (label) => {
+    //                 raw.push(label.name);
+    //             }
+    //         );
+    //     }
+    // );
     return raw;
 };
 export const fetchIssues = async (org, repo, label) => await API.get(`/repos/${org}/${repo}/issues?labels=${label}`);

@@ -14,7 +14,7 @@ export default function labels(state = {}, action) {
     case GET_LABELS_SUCCESS:
       return {
         loading: false,
-        reposlist: [...new Set(action.payload)],
+        labelslist: [...new Set(action.payload)],
       };
     case GET_LABELS_FAIL:
       return {
