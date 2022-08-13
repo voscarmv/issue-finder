@@ -18,16 +18,21 @@ const Issues = () => {
       },
       [selectedIssue]
     );
-    
+    const issueListFlat = issuesList?.flat()
   return (
     <div>
       <h1 className="filter-title">Issues</h1>
       <ul className="labelCont">
-        {issuesList ? (
-          issuesList.map((issue, i) => (
+        {issueListFlat ? (
+          issueListFlat.map((issue, i) => (
             <li key={i}>
-                <code className='text-dark'>{JSON.stringify(issue)}</code>
-
+              <a href={issue.html_url} target="_blank" class="card-link">
+                <div class="card" style={{ width: '18rem' }}>
+                  <div class="card-body">
+                  <h5 class="card-title">{issue?.title}</h5>
+                  </div>
+                </div>
+              </a>
             </li>
           ))
         ) : (
