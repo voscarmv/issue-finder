@@ -32,7 +32,7 @@ export const getLabels = (repos) => async (dispatch, getState) => {
   });
   try {
 
-    // get list of labels, saved in browser's local strorage
+    // get date for list of labels, saved in browser's local strorage
     const localDataDate = localStorage.getItem('date');
     let today = new Date();
     const dd = String(today.getDate()).padStart(2, '0');
