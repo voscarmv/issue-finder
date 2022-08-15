@@ -26,10 +26,10 @@ const Issues = () => {
         {issueListFlat ? (
           issueListFlat.map((issue, i) => (
             <li key={i}>
-              <a href={issue.html_url} target="_blank" class="card-link">
-                <div class="card" style={{ width: '18rem' }}>
-                  <div class="card-body">
-                  <h5 class="card-title">{issue?.title}</h5>
+              <a href={issue.html_url} target="_blank" className="card-link" rel="noopener noreferrer">
+                <div className="card" style={{ width: '18rem' }}>
+                  <div className="card-body">
+                  <h5 className="card-title">{issue?.title}</h5>
                   </div>
                 </div>
               </a>
@@ -38,8 +38,8 @@ const Issues = () => {
         ) : (
           <li>
             <label>
-              <div class="spinner-border m-5" role="status">
-                <span class="sr-only">Loading...</span>
+              <div className="spinner-border m-5" role="status">
+                <span className="sr-only">Loading...</span>
               </div>
             </label>
           </li>

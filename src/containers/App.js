@@ -26,14 +26,14 @@ function App() {
         <br></br>
         < SearchEngine />
         <code>Coming Soon...</code>
-        <em class='text-sm text-success w-80 mt-3'>"The function of Issue Finder is to search for skill appropriate, current Open Source Repositories that make your contributions stand out from other hires and YOU a must-have for hiring mangers!"</em>
+        <em className='text-sm text-success w-80 mt-3'>"The function of Issue Finder is to search for skill appropriate, current Open Source Repositories that make your contributions stand out from other hires and YOU a must-have for hiring mangers!"</em>
         <br />
-      <div class='flex justify-between space-x-2'>
-        <div class="flex justify-center">
+      <div className='flex justify-between space-x-2'>
+        <div className="flex justify-center">
   <div>
-    <div class="dropup relative">
+    <div className="dropup relative">
       <button
-        class="
+        className="
           dropdown-toggle
           px-6
           py-2.5
@@ -66,7 +66,7 @@ function App() {
           focusable="false"
           data-prefix="fas"
           data-icon="caret-up"
-          class="w-2 ml-2"
+          className="w-2 ml-2"
           role="img"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 320 512"
@@ -78,7 +78,7 @@ function App() {
         </svg>
       </button>
       <ul
-        class="
+        className="
           dropdown-menu
           min-w-max
           absolute
@@ -121,7 +121,7 @@ function App() {
         </li>
         <li>
           <a
-            class="
+            className="
               dropdown-item
               text-sm
               py-2
@@ -140,7 +140,7 @@ function App() {
         </li>
         <li>
           <a
-            class="
+            className="
               dropdown-item
               text-sm
               py-2
@@ -170,11 +170,11 @@ function App() {
         >
           View on Github
         </a></Button>
-        <div class="flex justify-center">
+        <div className="flex justify-center">
   <div>
-    <div class="dropup relative">
+    <div className="dropup relative">
       <button
-        class="
+        className="
           dropdown-toggle
           px-6
           py-2.5
@@ -207,7 +207,7 @@ function App() {
           focusable="false"
           data-prefix="fas"
           data-icon="caret-up"
-          class="w-2 ml-2"
+          className="w-2 ml-2"
           role="img"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 320 512"
@@ -219,7 +219,7 @@ function App() {
         </svg>
       </button>
       <ul
-        class="
+        className="
           dropdown-menu
           min-w-max
           absolute
@@ -243,7 +243,7 @@ function App() {
       >
         <li>
           <a
-            class="
+            className="
               dropdown-item
               text-sm
               py-2
@@ -262,7 +262,7 @@ function App() {
         </li>
         <li>
           <a
-            class="
+            className="
               dropdown-item
               text-sm
               py-2
@@ -281,7 +281,7 @@ function App() {
         </li>
         <li>
           <a
-            class="
+            className="
               dropdown-item
               text-sm
               py-2
