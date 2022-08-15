@@ -16,6 +16,7 @@ const API = axios.create(
             'Authorization': `token ${process.env.REACT_APP_API_KEY}`
             // Before running npm start, run
             // export REACT_APP_API_KEY=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
+            // Except with your own key generated here https://github.com/settings/tokens
         }
     }
 );
