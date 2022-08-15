@@ -26,7 +26,7 @@ function App() {
         </p>
         <br></br>
         < SearchEngine />
-        <Line percent={80} strokeWidth={4} strokeColor="#FF10F0" />
+        <Line percent={80} strokeWidth={4} trailWidth={4} strokeColor="#FF10F0" />
         <br></br>
         <code>Coming Soon...</code>
         <em className='text-sm text-success w-80 mt-3'>"The function of Issue Finder is to search for skill appropriate, current Open Source Repositories that make your contributions stand out from other hires and YOU a must-have for hiring mangers!"</em>
