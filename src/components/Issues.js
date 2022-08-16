@@ -22,7 +22,7 @@ const Issues = () => {
   return (
     <div>
       <h1 className="filter-title">Issues</h1>
-      <ul className="labelCont">
+      <ul className="labelCont py-2">
         {issueListFlat ? (
           issueListFlat.map((issue, i) => (
             <li key={i}>

@@ -15,7 +15,7 @@ const Labels = () => {
   return (
     <div>
       <h1 className="filter-title">Labels</h1>
-      <ul className="labelCont">
+      <ul className="labelCont py-2">
         {labelslist ? (
           labelslist.map((label, i) => (
             <li key={i}>
