@@ -5,10 +5,10 @@ import {getIssues} from '../actions'
 const Issues = () => {
     const selectedIssue = useSelector((state) => state.selectIssuesStore);
     const reposlist = useSelector((state) => state.reposStore.reposlist);
-    const { issuesList } = useSelector((state) => state.issuesStore);
+    const { loading, issuesList } = useSelector((state) => state.issuesStore);
     const dispatch = useDispatch();
     useEffect(() => {
-        if(reposlist && selectedIssue){
+        if(reposlist){
             for(let i = 0; i < reposlist.length; i++) {
                 for(let j = 0; j < selectedIssue.length; j++){
                     dispatch(getIssues(reposlist[i].org,reposlist[i].repo,selectedIssue[j]))
@@ -16,9 +16,9 @@ const Issues = () => {
             }
         }
       },
-      [selectedIssue]
+      [selectedIssue.length]
     );
-    const issueListFlat = issuesList?.flat()
+    const issueListFlat = selectedIssue.length ? issuesList?.flat() : null
   return (
     <div>
       <h1 className="filter-title">Issues</h1>
@@ -35,15 +35,19 @@ const Issues = () => {
               </a>
             </li>
           ))
-        ) : (
-          <li>
+        ) : 
+          
+            loading ? (<li>
             <label>
               <div className="spinner-border m-5" role="status">
                 <span className="sr-only">Loading...</span>
               </div>
             </label>
-          </li>
-        )}
+          </li>) : (<>
+            <span className="m-2 h2">No Label Selected</span>  
+          </>)
+          
+        }
       </ul>
     </div>
   )
