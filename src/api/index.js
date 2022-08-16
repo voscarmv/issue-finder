@@ -18,20 +18,6 @@ const API = axios.create(
 );
 
 export const fetchRepos = async () => await axios.get('https://raw.githubusercontent.com/voscarmv/ycombinator_githubs/main/06_repos.json');
-const fetchLabels = async (org, repo) => await API.get(`/repos/${org}/${repo}/labels`);
-export const rawLabels = async (repos) => {
-    // const repos = await fetchRepos();
-    console.log(`from inside rawLabelssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss ${JSON.stringify(repos)}`);
-    let rawdata = [];
-    for(let i = 0; i < repos.length; i ++){
-        const item = repos[i];
-        const labels = await fetchLabels(item.org, item.repo);
-        for(let j = 0; j < labels.data.length; j++){
-            const label = labels.data[j];
-            rawdata.push(label.name);
-        }
-        console.log(`loading ${i*100/repos.length} %`);
-    }
-    return rawdata;
-};
+export const fetchLabels = async (org, repo) => await API.get(`/repos/${org}/${repo}/labels`);
+
 export const fetchIssues = async (org, repo, label) => await API.get(`/repos/${org}/${repo}/issues?labels=${label}`);

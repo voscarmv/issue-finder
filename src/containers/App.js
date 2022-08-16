@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getRepos } from '../actions'
 import { SearchEngine } from './searchEngine';
 import './App.css';
@@ -16,6 +16,7 @@ function App() {
     // eslint-disable-next-line
     []
   );
+  const { loading, loadingPercentage } = useSelector((state) => state.labelsStore);
 
   // need to update percentage of loading bar
   return (
@@ -25,10 +26,10 @@ function App() {
           Welcome to <code className="App-title">Issue Finder!</code>
         </p>
         <br></br>
-        < SearchEngine />
-        <Line percent={80} strokeWidth={4} trailWidth={4} strokeColor="#FF10F0" />
+        <SearchEngine />
+        <Line percent={loading ? loadingPercentage : 100} strokeWidth={1.5} trailWidth={1.5} className="mx-4" strokeColor="#FF10F0" />
         <br></br>
-        <code>Coming Soon...</code>
+        {loading ? <code>Loading...</code> : null}
         <em className='text-sm text-success w-80 mt-3'>"The function of Issue Finder is to search for skill appropriate, current Open Source Repositories that make your contributions stand out from other hires and YOU a must-have for hiring mangers!"</em>
         <br />
         <div className='flex justify-between space-x-2'>

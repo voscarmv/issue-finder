@@ -23,12 +23,34 @@ export const getIssues = (org, repo, label) => async (dispatch) => {
   }
 };
 
+
+export const rawLabels = async (repos, dispatch) => {
+  // const repos = await fetchRepos();
+  console.log(`from inside rawLabelssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss ${JSON.stringify(repos)}`);
+  let rawdata = [];
+  for(let i = 0; i < repos.length; i ++){
+      const item = repos[i];
+      const labels = await api.fetchLabels(item.org, item.repo);
+      for(let j = 0; j < labels.data.length; j++){
+          const label = labels.data[j];
+          rawdata.push(label.name);
+      }
+      console.log(`loading ${i*100/repos.length} %`);
+      dispatch({
+        type: label.GET_LABELS_REQUEST,
+        loadingPercentage:i*100/repos.length
+      });
+  }
+  return rawdata;
+};
+
 export const getLabels = (repos) => async (dispatch, getState) => {
   if(repos === undefined) return;
   console.log("Hello world");
   console.log(`inside getLabels ${JSON.stringify(repos)}`);
   dispatch({
     type: label.GET_LABELS_REQUEST,
+    loadingPercentage:0
   });
   try {
 
@@ -49,7 +71,7 @@ export const getLabels = (repos) => async (dispatch, getState) => {
     const localData = localStorage.getItem('labelslist');
     let data = '';
     if(localData) data = JSON.parse(localData);
-    else data = await api.rawLabels(repos); // if label list is not present in local storage than get fresh list of labels.
+    else data = await rawLabels(repos, dispatch); // if label list is not present in local storage than get fresh list of labels.
     console.log(`inside getLabels 2 ${data}`);
     dispatch({
       type: label.GET_LABELS_SUCCESS,

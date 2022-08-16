@@ -10,6 +10,7 @@ export default function labels(state = {}, action) {
       return {
         ...state,
         loading: true,
+        loadingPercentage:action.loadingPercentage
       };
     case GET_LABELS_SUCCESS:
       return {
