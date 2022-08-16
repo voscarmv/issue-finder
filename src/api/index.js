@@ -1,8 +1,4 @@
 import axios from 'axios'
-// import labels from '../reducers/labels';
-//import dotenv from 'dotenv';
-
-//dotenv.config();
 
 // Api calls to github https://docs.github.com/en/rest/issues/issues
 

@@ -39,7 +39,7 @@ export const getLabels = (repos) => async (dispatch, getState) => {
     const mm = String(today.getMonth() + 1).padStart(2, '0');
     const yyyy = today.getFullYear();
     today = (mm+dd+yyyy).toString();
-    // if date when data was saved is more than a day, clear it.
+    // if date, when data was saved, is more than a day, clear it.
     if(localDataDate !== today){
       localStorage.removeItem('labelslist');
       localStorage.removeItem('date');
@@ -49,7 +49,7 @@ export const getLabels = (repos) => async (dispatch, getState) => {
     const localData = localStorage.getItem('labelslist');
     let data = '';
     if(localData) data = JSON.parse(localData);
-    else data = await api.rawLabels(repos); // if label list is not present in local stprage than get fresh lists of labels.
+    else data = await api.rawLabels(repos); // if label list is not present in local storage than get fresh list of labels.
     console.log(`inside getLabels 2 ${data}`);
     dispatch({
       type: label.GET_LABELS_SUCCESS,
