@@ -8,5 +8,5 @@ export default combineReducers({
   issuesStore: issues,
   labelsStore: labels,
   reposStore: repos,
-  selectIssuesStore:selectIssues
+  selectIssuesStore: selectIssues
 });

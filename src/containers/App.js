@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRepos } from '../actions'
+import { getRepos } from '../actions';
 import { SearchEngine } from './searchEngine';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,11 +8,12 @@ import Button from 'react-bootstrap/Button';
 import { Line } from 'rc-progress';
 
 function App() {
-  const dispatch = useDispatch()
-  console.log(process.env.REACT_APP_API_KEY)
-  useEffect(() => {
-    dispatch(getRepos());
-  },
+  const dispatch = useDispatch();
+  console.log(process.env.REACT_APP_API_KEY);
+  useEffect(
+    () => {
+      dispatch(getRepos());
+    },
     // eslint-disable-next-line
     []
   );
@@ -27,12 +28,22 @@ function App() {
         </p>
         <br></br>
         <SearchEngine />
-        <Line percent={loading ? loadingPercentage : 100} strokeWidth={1.5} trailWidth={1.5} className="mx-4" strokeColor="#FF10F0" />
+        <Line
+          percent={loading ? loadingPercentage : 100}
+          strokeWidth={1.5}
+          trailWidth={1.5}
+          className="mx-4"
+          strokeColor="#FF10F0"
+        />
         <br></br>
         {loading ? <code>Loading...</code> : null}
-        <em className='text-sm text-success w-80 mt-3'>"The function of Issue Finder is to search for skill appropriate, current Open Source Repositories that make your contributions stand out from other hires and YOU a must-have for hiring mangers!"</em>
+        <em className="text-sm text-success w-80 mt-3">
+          &quot;The function of Issue Finder is to search for skill appropriate, current Open Source
+          Repositories that make your contributions stand out from other hires and YOU a must-have
+          for hiring mangers!&quot;
+        </em>
         <br />
-        <div className='flex justify-between space-x-2'>
+        <div className="flex justify-between space-x-2">
           <div className="flex justify-center">
             <div>
               <div className="dropup relative">
@@ -62,8 +73,7 @@ function App() {
                   type="button"
                   id="dropdownMenuButton1u"
                   data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
+                  aria-expanded="false">
                   Labels
                   <svg
                     aria-hidden="true"
@@ -73,12 +83,10 @@ function App() {
                     className="w-2 ml-2"
                     role="img"
                     xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 320 512"
-                  >
+                    viewBox="0 0 320 512">
                     <path
                       fill="currentColor"
-                      d="M288.662 352H31.338c-17.818 0-26.741-21.543-14.142-34.142l128.662-128.662c7.81-7.81 20.474-7.81 28.284 0l128.662 128.662c12.6 12.599 3.676 34.142-14.142 34.142z"
-                    ></path>
+                      d="M288.662 352H31.338c-17.818 0-26.741-21.543-14.142-34.142l128.662-128.662c7.81-7.81 20.474-7.81 28.284 0l128.662 128.662c12.6 12.599 3.676 34.142-14.142 34.142z"></path>
                   </svg>
                 </button>
                 <ul
@@ -102,8 +110,7 @@ function App() {
           bg-clip-padding
           border-none
         "
-                  aria-labelledby="dropdownMenuButton1u"
-                >
+                  aria-labelledby="dropdownMenuButton1u">
                   <li>
                     <a
                       className="
@@ -119,9 +126,9 @@ function App() {
               text-gray-700
               hover:bg-gray-100
             "
-                      href="#"
-                    >Action</a
-                    >
+                      href="#">
+                      Action
+                    </a>
                   </li>
                   <li>
                     <a
@@ -138,9 +145,9 @@ function App() {
               text-gray-700
               hover:bg-gray-100
             "
-                      href="#"
-                    >Another action</a
-                    >
+                      href="#">
+                      Another action
+                    </a>
                   </li>
                   <li>
                     <a
@@ -157,23 +164,24 @@ function App() {
               text-gray-700
               hover:bg-gray-100
             "
-                      href="#"
-                    >Something else here</a
-                    >
+                      href="#">
+                      Something else here
+                    </a>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
 
-          <Button variant="dark"><a
-            className="github-source"
-            href="https://github.com/voscarmv/issue-finder"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View on Github
-          </a></Button>
+          <Button variant="dark">
+            <a
+              className="github-source"
+              href="https://github.com/voscarmv/issue-finder"
+              target="_blank"
+              rel="noopener noreferrer">
+              View on Github
+            </a>
+          </Button>
           <div className="flex justify-center">
             <div>
               <div className="dropup relative">
@@ -203,8 +211,7 @@ function App() {
                   type="button"
                   id="dropdownMenuButton1u"
                   data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
+                  aria-expanded="false">
                   Filters
                   <svg
                     aria-hidden="true"
@@ -214,12 +221,10 @@ function App() {
                     className="w-2 ml-2"
                     role="img"
                     xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 320 512"
-                  >
+                    viewBox="0 0 320 512">
                     <path
                       fill="currentColor"
-                      d="M288.662 352H31.338c-17.818 0-26.741-21.543-14.142-34.142l128.662-128.662c7.81-7.81 20.474-7.81 28.284 0l128.662 128.662c12.6 12.599 3.676 34.142-14.142 34.142z"
-                    ></path>
+                      d="M288.662 352H31.338c-17.818 0-26.741-21.543-14.142-34.142l128.662-128.662c7.81-7.81 20.474-7.81 28.284 0l128.662 128.662c12.6 12.599 3.676 34.142-14.142 34.142z"></path>
                   </svg>
                 </button>
                 <ul
@@ -243,8 +248,7 @@ function App() {
           bg-clip-padding
           border-none
         "
-                  aria-labelledby="dropdownMenuButton1u"
-                >
+                  aria-labelledby="dropdownMenuButton1u">
                   <li>
                     <a
                       className="
@@ -260,9 +264,9 @@ function App() {
               text-gray-700
               hover:bg-gray-100
             "
-                      href="#"
-                    >Action</a
-                    >
+                      href="#">
+                      Action
+                    </a>
                   </li>
                   <li>
                     <a
@@ -279,9 +283,9 @@ function App() {
               text-gray-700
               hover:bg-gray-100
             "
-                      href="#"
-                    >Another action</a
-                    >
+                      href="#">
+                      Another action
+                    </a>
                   </li>
                   <li>
                     <a
@@ -298,9 +302,9 @@ function App() {
               text-gray-700
               hover:bg-gray-100
             "
-                      href="#"
-                    >Something else here</a
-                    >
+                      href="#">
+                      Something else here
+                    </a>
                   </li>
                 </ul>
               </div>

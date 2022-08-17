@@ -13,19 +13,17 @@ const IssuesTable = ({ issues }) => {
   }
   return (
     <ul>
-      {issues.map(
-        issue => (
-          <li key={ap.id}>
-            <a href={`"${issue.url}"`}>{issue.url}</a>
-          </li>
-        ),
-      )}
+      {issues.map((issue) => (
+        <li key={ap.id}>
+          <a href={`"${issue.url}"`}>{issue.url}</a>
+        </li>
+      ))}
     </ul>
   );
 };
 
 IssuesTable.propTypes = {
-  issues: propTypes.arrayOf(propTypes.any).isRequired,
+  issues: propTypes.arrayOf(propTypes.any).isRequired
 };
 
 export default IssuesTable;

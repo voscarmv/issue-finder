@@ -1,13 +1,13 @@
 import {
   ADD_TO_SELECT_ISSUES,
-  REMOVE_FROM_SELECT_ISSUES,
-} from "../constants/selectIssuesConstants";
+  REMOVE_FROM_SELECT_ISSUES
+} from '../constants/selectIssuesConstants';
 
 export default function selectIssues(state = [], action) {
+  const selectedIssue = action.payload;
+  const isSelectedIssueExist = state.find((i) => i === selectedIssue);
   switch (action.type) {
     case ADD_TO_SELECT_ISSUES:
-      const selectedIssue = action.payload;
-      const isSelectedIssueExist = state.find((i) => i === selectedIssue);
       if (isSelectedIssueExist) {
         return state;
       } else {

@@ -1,6 +1,6 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { addToSelectIssues, removeFromSelectIssues } from '../actions'
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { addToSelectIssues, removeFromSelectIssues } from '../actions';
 
 const Labels = () => {
   // sample using a bunch of labels (later we can use state selectors)
@@ -8,9 +8,9 @@ const Labels = () => {
   const { labelslist } = useSelector((state) => state.labelsStore);
   const dispatch = useDispatch();
 
-  function handleLabelSelection(label,e){
-    if(e) dispatch(addToSelectIssues(label))
-    else dispatch(removeFromSelectIssues(label))
+  function handleLabelSelection(label, e) {
+    if (e) dispatch(addToSelectIssues(label));
+    else dispatch(removeFromSelectIssues(label));
   }
   return (
     <div>
