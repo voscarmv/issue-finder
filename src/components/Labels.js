@@ -13,7 +13,7 @@ const Labels = () => {
     else dispatch(removeFromSelectIssues(label));
   }
   return (
-    <div>
+    <div className="label-container">
       <h1 className="filter-title">Labels</h1>
       <ul className="labelCont py-2">
         {labelslist ? (

@@ -18,7 +18,7 @@ const Issues = () => {
   }, [selectedIssue.length]);
   const issueListFlat = selectedIssue.length ? issuesList?.flat() : null;
   return (
-    <div>
+    <div className="issue-container">
       <h1 className="filter-title">Issues</h1>
       <ul className="labelCont py-2">
         {issueListFlat ? (

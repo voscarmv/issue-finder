@@ -69,8 +69,11 @@ code {
   margin-left: 0.25em;
 }
 
-.labelCont {
+.label-container,.issue-container{
   border: 0.5em solid #282c34;
+}
+
+.labelCont {
   min-height: 20em;
   min-width: 300px;
   display: flex;
@@ -85,4 +88,5 @@ code {
   color: white;
   margin: 0;
   padding-left: 0.25em;
+  padding-bottom: 0.3em;;
 }
