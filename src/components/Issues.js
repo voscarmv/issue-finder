@@ -21,7 +21,7 @@ const Issues = () => {
   return (
     <div className="issue-container">
       <h1 className="filter-title">Issues</h1>
-      <ul className="labelCont py-2">
+      <ul className="grid xxl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-2 p-2">
         {issueListFlat ? (
           issueListFlat.map((issue, i) => (
             <li key={i}>
@@ -30,9 +30,9 @@ const Issues = () => {
                 target="_blank"
                 className="card-link"
                 rel="noopener noreferrer">
-                <div className="card" style={{ width: '18rem' }}>
-                  <div className="card-body">
-                    <h5 className="card-title">{issue?.title}</h5>
+                <div className="card h-100">
+                  <div className="card-body text-center">
+                    <h5 className="card-title align-middle">{issue?.title}</h5>
                   </div>
                 </div>
               </a>

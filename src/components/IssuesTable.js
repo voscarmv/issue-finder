@@ -13,8 +13,8 @@ const IssuesTable = ({ issues }) => {
   }
   return (
     <ul>
-      {issues.map((issue) => (
-        <li key={ap.id}>
+      {issues.map((issue, id) => (
+        <li key={id}>
           <a href={`"${issue.url}"`}>{issue.url}</a>
         </li>
       ))}
