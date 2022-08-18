@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getIssues } from '../actions';
+import { epmtyIssuesList, getIssues } from '../actions';
 
 const Issues = () => {
   const selectedIssue = useSelector((state) => state.selectIssuesStore);
@@ -8,6 +8,7 @@ const Issues = () => {
   const { loading, issuesList } = useSelector((state) => state.issuesStore);
   const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(epmtyIssuesList());
     if (reposlist) {
       for (let i = 0; i < reposlist.length; i++) {
         for (let j = 0; j < selectedIssue.length; j++) {

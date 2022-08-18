@@ -26,6 +26,12 @@ export const getIssues = (org, repo, label) => async (dispatch) => {
   }
 };
 
+export const epmtyIssuesList = () => (dispatch) => {
+  dispatch({
+    type: issue.EMPTY_ISSUES_LIST
+  });
+};
+
 export const rawLabels = async (repos, dispatch) => {
   // const repos = await fetchRepos();
   console.log(
