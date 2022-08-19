@@ -15,7 +15,7 @@ const Labels = () => {
   return (
     <div className="label-container">
       <h1 className="filter-title">Labels</h1>
-      <ul className="labelCont py-2">
+      <ul className="grid xxl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-2 p-2">
         {labelslist ? (
           labelslist.map((label, i) => (
             <li key={i}>
