@@ -3,9 +3,9 @@ import * as issue from '../constants/issueConstants';
 import * as label from '../constants/labelConstants';
 import * as repo from '../constants/reposConstants';
 import {
-  ADD_TO_SELECT_ISSUES,
-  REMOVE_FROM_SELECT_ISSUES
-} from '../constants/selectIssuesConstants';
+  ADD_TO_SELECTED_LABELS,
+  REMOVE_FROM_SELECTED_LABELS
+} from '../constants/selectedLabelsConstants';
 
 export const getIssues = (org, repo, label) => async (dispatch) => {
   dispatch({
@@ -117,16 +117,16 @@ export const getRepos = () => async (dispatch) => {
   }
 };
 
-export const addToSelectIssues = (labels) => (dispatch) => {
+export const addToSelectedLabels = (labels) => (dispatch) => {
   dispatch({
-    type: ADD_TO_SELECT_ISSUES,
+    type: ADD_TO_SELECTED_LABELS,
     payload: labels
   });
 };
 
-export const removeFromSelectIssues = (labels) => (dispatch) => {
+export const removeFromSelectLabels = (labels) => (dispatch) => {
   dispatch({
-    type: REMOVE_FROM_SELECT_ISSUES,
+    type: REMOVE_FROM_SELECTED_LABELS,
     payload: labels
   });
 };

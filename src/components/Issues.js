@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { epmtyIssuesList, getIssues } from '../actions';
 
 const Issues = () => {
-  const selectedIssue = useSelector((state) => state.selectIssuesStore);
+  const selectedLabels = useSelector((state) => state.selectedLabelsStore);
   const reposlist = useSelector((state) => state.reposStore.reposlist);
   const { loading, issuesList } = useSelector((state) => state.issuesStore);
   const dispatch = useDispatch();
@@ -11,13 +11,13 @@ const Issues = () => {
     dispatch(epmtyIssuesList());
     if (reposlist) {
       for (let i = 0; i < reposlist.length; i++) {
-        for (let j = 0; j < selectedIssue.length; j++) {
-          dispatch(getIssues(reposlist[i].org, reposlist[i].repo, selectedIssue[j]));
+        for (let j = 0; j < selectedLabels.length; j++) {
+          dispatch(getIssues(reposlist[i].org, reposlist[i].repo, selectedLabels[j]));
         }
       }
     }
-  }, [selectedIssue.length]);
-  const issueListFlat = selectedIssue.length ? issuesList?.flat() : null;
+  }, [selectedLabels.length]);
+  const issueListFlat = selectedLabels.length ? issuesList?.flat() : null;
   return (
     <div className="issue-container">
       <h1 className="filter-title">Issues</h1>
@@ -26,9 +26,9 @@ const Issues = () => {
           <div className="spinner-border m-5" role="status">
             <span className="sr-only">Loading...</span>
           </div>
-        ) : !issuesList?.length && selectedIssue?.length ? (
+        ) : !issuesList?.length && selectedLabels?.length ? (
           <span className="m-2 h2">No Issue Found</span>
-        ) : !selectedIssue.length ? (
+        ) : !selectedLabels.length ? (
           <span className="m-2 h2">No Label Selected</span>
         ) : (
           issueListFlat.map((issue, i) => (
