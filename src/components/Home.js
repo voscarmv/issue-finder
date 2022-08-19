@@ -43,12 +43,13 @@ const Home = () => {
         {loading ? <code>Loading...</code> : null}
         <br />
         <div className="flex items-end gap-3">
-          <Select variant="static" label="Label">
+          <Select variant="static" label="Label" selected={() => 'Good First Issue'}>
             <Option>Good First Issue</Option>
             <Option>Documentation</Option>
             <Option>Bug</Option>
             <Option>Help Wanted</Option>
             <Option>Question</Option>
+            <Option>All</Option>
           </Select>
           <Button variant="dark button button-pink w-full h-15">
             <a
@@ -59,10 +60,10 @@ const Home = () => {
               View on Github
             </a>
           </Button>
-          <Select variant="static" label="Filter">
-            <Option>Language Ruby</Option>
+          <Select variant="static" label="Filter" selected={() => 'Language JavaScript'}>
+            <Option selected>Language Ruby</Option>
             <Option>Language JavaScript</Option>
-            <Option>Recent</Option>
+            <Option>Both</Option>
           </Select>
         </div>
       </header>
