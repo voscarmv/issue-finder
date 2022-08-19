@@ -13,7 +13,7 @@ export default function issues(state = {}, action) {
         loading: true
       };
     case GET_ISSUES_SUCCESS:
-      if (action.payload.length === 0) return state;
+      if (action.payload.length === 0) return { ...state, loading: false };
       if (state.issuesList) {
         return {
           loading: false,
