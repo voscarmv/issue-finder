@@ -24,25 +24,21 @@ const Home = () => {
         <p>
           Welcome to <code className="App-title">Issue Finder!</code>
         </p>
-        <em className="mt-3 text-sm text-success w-80">
+        <em className="my-4 mt-3 text-sm text-success w-80">
           &quot;The function of Issue Finder is to search for skill appropriate, current Open Source
           Repositories that make your contributions stand out from other hires and YOU a must-have
           for hiring mangers!&quot;
         </em>
-        <br></br>
-        <br></br>
         <SearchEngine />
         <Line
           percent={loading ? loadingPercentage : 100}
           strokeWidth={1.5}
           trailWidth={1.5}
-          className="mx-4"
+          className="mx-4 my-4"
           strokeColor="#FF10F0"
         />
-        <br></br>
-        {loading ? <code>Loading...</code> : null}
-        <br />
-        <div className="flex items-end gap-3">
+        {loading ? <code className="my-4">Loading...</code> : null}
+        <div className="flex items-end gap-3 my-4">
           <Select
             variant="static"
             label="Label"
