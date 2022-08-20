@@ -43,7 +43,10 @@ const Home = () => {
         {loading ? <code>Loading...</code> : null}
         <br />
         <div className="flex items-end gap-3">
-          <Select variant="static" label="Label" selected={() => 'Good First Issue'}>
+          <Select
+            variant="static"
+            label="Label"
+            selected={(ele) => (ele ? ele.props.children : 'Good First Issue')}>
             <Option>Good First Issue</Option>
             <Option>Documentation</Option>
             <Option>Bug</Option>
@@ -60,8 +63,11 @@ const Home = () => {
               View on Github
             </a>
           </Button>
-          <Select variant="static" label="Filter" selected={() => 'Language JavaScript'}>
-            <Option selected>Language Ruby</Option>
+          <Select
+            variant="static"
+            label="Filter"
+            selected={(ele) => (ele ? ele.props.children : 'Both')}>
+            <Option>Language Ruby</Option>
             <Option>Language JavaScript</Option>
             <Option>Both</Option>
           </Select>
