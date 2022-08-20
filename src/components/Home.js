@@ -5,6 +5,7 @@ import { SearchEngine } from './SearchEngine';
 import { Select, Option } from '@material-tailwind/react';
 import { Line } from 'rc-progress';
 import Button from 'react-bootstrap/Button';
+import { VscGithub } from 'react-icons/vsc';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -21,13 +22,22 @@ const Home = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Welcome to <code className="App-title">Issue Finder!</code>
-        </p>
-        <em className="my-4 mt-3 text-sm text-success w-80">
-          &quot;The function of Issue Finder is to search for skill appropriate, current Open Source
-          Repositories that make your contributions stand out from other hires and YOU a must-have
-          for hiring mangers!&quot;
+        <p className="">Welcome to </p>
+        <div className="flex flex-row justify-between">
+          <code className="space-x-2">
+            Issue
+            <a
+              className=""
+              href="https://github.com/voscarmv/issue-finder"
+              target="_blank"
+              rel="noopener noreferrer">
+              <VscGithub className="git-icon" />
+            </a>
+            Finder
+          </code>
+        </div>
+        <em className="my-4 mt-3 text-sm text-white rounded-1 w-80">
+          Best Open Source issue locator for busy Devs!
         </em>
         <SearchEngine />
         <Line
@@ -50,15 +60,7 @@ const Home = () => {
             <Option>Question</Option>
             <Option>All</Option>
           </Select>
-          <Button variant="dark button button-pink w-full h-15">
-            <a
-              className="github-source"
-              href="https://github.com/voscarmv/issue-finder"
-              target="_blank"
-              rel="noopener noreferrer">
-              View on Github
-            </a>
-          </Button>
+          <Button variant="dark button button-green text-primary w-full h-15"> Find Issues</Button>
           <Select
             variant="static"
             label="Filter"

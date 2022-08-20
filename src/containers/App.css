@@ -90,3 +90,25 @@ code {
   padding-left: 0.25em;
   padding-bottom: 0.3em;;
 }
+
+.App-title {
+ word-wrap: none;
+}
+
+.git-icon {
+  color: rgba(255, 255, 255, 0.7);
+  display: inline;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+}
+
+.git-icon:hover {
+  color: gray;
+  display: inline;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+}
