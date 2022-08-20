@@ -8,8 +8,8 @@ const Labels = () => {
   const { labelslist } = useSelector((state) => state.labelsStore);
   const dispatch = useDispatch();
 
-  function handleLabelSelection(label, e) {
-    if (e) dispatch(addToSelectedLabels(label));
+  function handleLabelSelection(label, isChecked) {
+    if (isChecked) dispatch(addToSelectedLabels(label));
     else dispatch(removeFromSelectLabels(label));
   }
   return (
