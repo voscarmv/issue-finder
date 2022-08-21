@@ -1,6 +1,7 @@
 import {
   ADD_TO_SELECTED_LABELS,
-  REMOVE_FROM_SELECTED_LABELS
+  REMOVE_FROM_SELECTED_LABELS,
+  EMPTY_SELECTED_LABELS
 } from '../constants/selectedLabelsConstants';
 
 export default function selectLabels(state = [], action) {
@@ -15,6 +16,8 @@ export default function selectLabels(state = [], action) {
       }
     case REMOVE_FROM_SELECTED_LABELS:
       return state.filter((i) => i !== action.payload);
+    case EMPTY_SELECTED_LABELS:
+      return [];
     default:
       return state;
   }

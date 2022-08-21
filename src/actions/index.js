@@ -4,7 +4,8 @@ import * as label from '../constants/labelConstants';
 import * as repo from '../constants/reposConstants';
 import {
   ADD_TO_SELECTED_LABELS,
-  REMOVE_FROM_SELECTED_LABELS
+  REMOVE_FROM_SELECTED_LABELS,
+  EMPTY_SELECTED_LABELS
 } from '../constants/selectedLabelsConstants';
 
 export const getIssues = (org, repo, label) => async (dispatch) => {
@@ -26,9 +27,24 @@ export const getIssues = (org, repo, label) => async (dispatch) => {
   }
 };
 
+export const toggleLabelList = (menu) => (dispatch) => {
+  if (menu === 1) menu = 2;
+  else menu = 1;
+  dispatch({
+    type: label.TOGGLE_MENU,
+    menu
+  });
+};
+
 export const epmtyIssuesList = () => (dispatch) => {
   dispatch({
     type: issue.EMPTY_ISSUES_LIST
+  });
+};
+
+export const epmtySelectedLabel = () => (dispatch) => {
+  dispatch({
+    type: EMPTY_SELECTED_LABELS
   });
 };
 

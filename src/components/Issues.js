@@ -16,7 +16,7 @@ const Issues = () => {
         }
       }
     }
-  }, [selectedLabels.length]);
+  }, [selectedLabels]);
   const issueListFlat = selectedLabels.length ? issuesList?.flat() : null;
   return (
     <div className="issue-container">

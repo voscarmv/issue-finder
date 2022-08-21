@@ -6,6 +6,12 @@ import { Select, Option } from '@material-tailwind/react';
 import { Line } from 'rc-progress';
 import Button from 'react-bootstrap/Button';
 import { VscGithub } from 'react-icons/vsc';
+import {
+  addToSelectedLabels,
+  epmtySelectedLabel,
+  epmtyIssuesList,
+  toggleLabelList
+} from '../actions';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -16,9 +22,19 @@ const Home = () => {
     // eslint-disable-next-line
     []
   );
-  const { loading, loadingPercentage } = useSelector((state) => state.labelsStore);
-
-  // need to update percentage of loading bar
+  const { loading, loadingPercentage, menu } = useSelector((state) => state.labelsStore);
+  function handleLabelSelection(label) {
+    if (label === 'All') {
+      dispatch(epmtyIssuesList());
+      dispatch(epmtySelectedLabel());
+      dispatch(toggleLabelList(1));
+    } else {
+      dispatch(toggleLabelList(2));
+      dispatch(epmtyIssuesList());
+      dispatch(epmtySelectedLabel());
+      dispatch(addToSelectedLabels(label));
+    }
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -39,26 +55,32 @@ const Home = () => {
         <em className="my-4 mt-3 text-sm text-white rounded-1 w-80">
           Best Open Source issue locator for busy Devs!
         </em>
-        <SearchEngine />
-        <Line
-          percent={loading ? loadingPercentage : 100}
-          strokeWidth={1.5}
-          trailWidth={1.5}
-          className="mx-4 my-4"
-          strokeColor="#FF10F0"
-        />
-        {loading ? <code className="my-4">Loading...</code> : null}
+        {menu === 2 ? (
+          <>
+            <SearchEngine />
+            <Line
+              percent={loading ? loadingPercentage : 100}
+              strokeWidth={1.5}
+              trailWidth={1.5}
+              className="mx-4 my-4"
+              strokeColor="#FF10F0"
+            />
+            {loading ? <code className="my-4">Loading...</code> : null}
+          </>
+        ) : null}
         <div className="flex items-end gap-3 my-4">
           <Select
             variant="static"
             label="Label"
-            selected={(ele) => (ele ? ele.props.children : 'Good First Issue')}>
-            <Option>Good First Issue</Option>
-            <Option>Documentation</Option>
-            <Option>Bug</Option>
-            <Option>Help Wanted</Option>
-            <Option>Question</Option>
-            <Option>All</Option>
+            selected={(ele) => (ele ? ele.props.children : 'Good First Issue')}
+            disabled={loading}
+            onChange={(label) => handleLabelSelection(label)}>
+            <Option value="Good First Issue">Good First Issue</Option>
+            <Option value="Documentation">Documentation</Option>
+            <Option value="Bug">Bug</Option>
+            <Option value="Help Wanted">Help Wanted</Option>
+            <Option value="Question">Question</Option>
+            <Option value="All">All</Option>
           </Select>
           <Button variant="dark button button-green text-primary w-full h-15"> Find Issues</Button>
           <Select
