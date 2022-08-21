@@ -10,11 +10,13 @@ import {
   addToSelectedLabels,
   epmtySelectedLabel,
   epmtyIssuesList,
-  toggleLabelList
+  toggleLabelList,
+  setLanguage
 } from '../actions';
 
 const Home = () => {
   const [label, setLabel] = useState('Good First Issue');
+  const [lang, setLang] = useState('All');
   const dispatch = useDispatch();
   useEffect(
     () => {
@@ -25,7 +27,6 @@ const Home = () => {
   );
   const { loading, loadingPercentage, menu } = useSelector((state) => state.labelsStore);
   function findIssues() {
-    console.log('good first issue');
     if (label === 'All') {
       dispatch(epmtyIssuesList());
       dispatch(epmtySelectedLabel());
@@ -36,6 +37,7 @@ const Home = () => {
       dispatch(epmtySelectedLabel());
       dispatch(addToSelectedLabels(label));
     }
+    dispatch(setLanguage(lang));
   }
   return (
     <div className="App">
@@ -93,11 +95,12 @@ const Home = () => {
           </Button>
           <Select
             variant="static"
-            label="Filter"
-            selected={(ele) => (ele ? ele.props.children : 'Both')}>
-            <Option>Language Ruby</Option>
-            <Option>Language JavaScript</Option>
-            <Option>Both</Option>
+            label="Language"
+            selected={(ele) => (ele ? ele.props.children : 'All')}
+            onChange={(language) => setLang(language)}>
+            <Option value="ruby">Ruby</Option>
+            <Option value="javascript">JavaScript</Option>
+            <Option value="All">All</Option>
           </Select>
         </div>
       </header>

@@ -48,6 +48,13 @@ export const epmtySelectedLabel = () => (dispatch) => {
   });
 };
 
+export const setLanguage = (language) => (dispatch) => {
+  dispatch({
+    type: issue.SET_LANGUAGE,
+    language
+  });
+};
+
 export const rawLabels = async (repos, dispatch) => {
   // const repos = await fetchRepos();
   console.log(

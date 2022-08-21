@@ -2,10 +2,14 @@ import {
   GET_ISSUES_REQUEST,
   GET_ISSUES_SUCCESS,
   GET_ISSUES_FAIL,
-  EMPTY_ISSUES_LIST
+  EMPTY_ISSUES_LIST,
+  SET_LANGUAGE
 } from '../constants/issueConstants.js';
 
-export default function issues(state = {}, action) {
+const initialState = {
+  language: 'All'
+};
+export default function issues(state = initialState, action) {
   switch (action.type) {
     case GET_ISSUES_REQUEST:
       return {
@@ -17,11 +21,13 @@ export default function issues(state = {}, action) {
       if (state.issuesList) {
         return {
           loading: false,
+          language: state.language,
           issuesList: [...state.issuesList, action.payload]
         };
       } else {
         return {
           loading: false,
+          language: state.language,
           issuesList: [action.payload]
         };
       }
@@ -34,7 +40,13 @@ export default function issues(state = {}, action) {
     case EMPTY_ISSUES_LIST:
       return {
         loading: false,
+        language: state.language,
         issuesList: []
+      };
+    case SET_LANGUAGE:
+      return {
+        ...state,
+        language: action.language
       };
     default:
       return state;
