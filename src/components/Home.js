@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getRepos } from '../actions';
 import { SearchEngine } from './SearchEngine';
@@ -14,6 +14,7 @@ import {
 } from '../actions';
 
 const Home = () => {
+  const [label, setLabel] = useState('Good First Issue');
   const dispatch = useDispatch();
   useEffect(
     () => {
@@ -23,7 +24,8 @@ const Home = () => {
     []
   );
   const { loading, loadingPercentage, menu } = useSelector((state) => state.labelsStore);
-  function handleLabelSelection(label) {
+  function findIssues() {
+    console.log('good first issue');
     if (label === 'All') {
       dispatch(epmtyIssuesList());
       dispatch(epmtySelectedLabel());
@@ -74,7 +76,7 @@ const Home = () => {
             label="Label"
             selected={(ele) => (ele ? ele.props.children : 'Good First Issue')}
             disabled={loading}
-            onChange={(label) => handleLabelSelection(label)}>
+            onChange={(label) => setLabel(label)}>
             <Option value="Good First Issue">Good First Issue</Option>
             <Option value="Documentation">Documentation</Option>
             <Option value="Bug">Bug</Option>
@@ -82,7 +84,13 @@ const Home = () => {
             <Option value="Question">Question</Option>
             <Option value="All">All</Option>
           </Select>
-          <Button variant="dark button button-green text-primary w-full h-15"> Find Issues</Button>
+          <Button
+            variant="dark button button-green text-primary w-full h-15"
+            disabled={loading}
+            onClick={() => findIssues()}>
+            {' '}
+            Find Issues
+          </Button>
           <Select
             variant="static"
             label="Filter"
