@@ -1,4 +1,6 @@
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import pageTrackerAnalytics from './PageTracker';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -7,6 +9,14 @@ import Labels from '../components/Labels';
 import Issues from '../components/Issues';
 
 function App() {
+  const analytics = useCallback(() => {
+    pageTrackerAnalytics({ path: pathname, search: search, title: pathname.split("/")[1] });
+  }, [pathname, search]);
+
+  useEffect(() => {
+      analytics();
+  }, [analytics]);
+
   const { menu } = useSelector((state) => state.labelsStore);
   return (
     <>
