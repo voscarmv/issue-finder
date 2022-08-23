@@ -1,15 +1,15 @@
 import { GA4React } from "ga-4-react";
 
-const ga4react = new GA4React("G-0SPQ2Z9EE2").initialize();
+const ga4react = new GA4React("G-C28740E7D5").initialize();
 
-export AnalyticsData = {
-    path: string,
-    search: string;
-    title: string;
+export const ANALYTICSDATA = {
+    path: '',
+    search: '',
+    title: '',
 }
 
-const pageTrackerAnalytics = (data: AnalyticsData) => {
-    const { path, search, title } = data;
+const pageTrackerAnalytics = (state = ANALYTICSDATA ) => {
+    const { path, search, title } = state;
     ga4react
         .then((ga) => {
             ga.pageview(path, search, title);
