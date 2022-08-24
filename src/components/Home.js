@@ -88,10 +88,9 @@ const Home = () => {
           </Select>
           <Button
             variant="dark button button-green text-primary w-full h-15"
-            disabled={loading}
+            disabled={loading || (menu === 2 && label === 'All')}
             onClick={() => findIssues()}>
-            {' '}
-            Find Issues
+            {label === 'All' ? 'Load Labels' : 'Find Issues'}
           </Button>
           <Select
             variant="static"
