@@ -8,11 +8,12 @@ import Issues from '../components/Issues';
 
 function App() {
   const { menu } = useSelector((state) => state.labelsStore);
+  const { issuesList } = useSelector((state) => state.issuesStore);
   return (
     <>
       <Home />
       {menu === 2 ? <Labels /> : null}
-      <Issues />
+      {issuesList ? <Issues /> : null}
     </>
   );
 }
