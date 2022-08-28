@@ -13,7 +13,7 @@ function App() {
     <>
       <Home />
       {menu === 2 ? <Labels /> : null}
-      {issuesList ? <Issues /> : null}
+      {issuesList && menu === 1 ? <Issues /> : null}
     </>
   );
 }
