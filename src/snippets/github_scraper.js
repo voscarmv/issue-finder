@@ -11,11 +11,10 @@ dotenv.config();
       }
     });
     const ghJson = await gh.json();
-    // console.log(ghJson);
     if (ghJson.message !== 'Not Found') {
       ghJson.forEach((repo) => {
         if (repo.language === 'JavaScript' || repo.language === 'Ruby') {
-          console.log(
+          console.info(
             `${repo.open_issues_count}, https://github.com/${repo.full_name}, ${repo.language}`
           );
         }
