@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import pageTrackerAnalytics from './PageTracker';
@@ -10,11 +11,11 @@ import Issues from '../components/Issues';
 
 function App() {
   const analytics = useCallback(() => {
-    pageTrackerAnalytics({ path: pathname, search: search, title: pathname.split("/")[1] });
+    pageTrackerAnalytics({ path: pathname, search: search, title: pathname.split('/')[1] });
   }, [pathname, search]);
 
   useEffect(() => {
-      analytics();
+    analytics();
   }, [analytics]);
 
   const { menu } = useSelector((state) => state.labelsStore);
