@@ -14,7 +14,6 @@ export const getIssues = (org, repo, label) => async (dispatch) => {
   });
   try {
     const { data } = await api.fetchIssues(org, repo, label);
-    console.log(data);
     dispatch({
       type: issue.GET_ISSUES_SUCCESS,
       payload: data
@@ -56,12 +55,6 @@ export const setLanguage = (language) => (dispatch) => {
 };
 
 export const rawLabels = async (repos, dispatch) => {
-  // const repos = await fetchRepos();
-  console.log(
-    `from inside rawLabelssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss ${JSON.stringify(
-      repos
-    )}`
-  );
   let rawdata = [];
   for (let i = 0; i < repos.length; i++) {
     const item = repos[i];
@@ -70,7 +63,6 @@ export const rawLabels = async (repos, dispatch) => {
       const label = labels.data[j];
       rawdata.push(label.name);
     }
-    console.log(`loading ${(i * 100) / repos.length} %`);
     dispatch({
       type: label.GET_LABELS_REQUEST,
       loadingPercentage: (i * 100) / repos.length
@@ -81,8 +73,6 @@ export const rawLabels = async (repos, dispatch) => {
 
 export const getLabels = (repos) => async (dispatch, getState) => {
   if (repos === undefined) return;
-  console.log('Hello world');
-  console.log(`inside getLabels ${JSON.stringify(repos)}`);
   dispatch({
     type: label.GET_LABELS_REQUEST,
     loadingPercentage: 0
@@ -106,7 +96,6 @@ export const getLabels = (repos) => async (dispatch, getState) => {
     let data = '';
     if (localData) data = JSON.parse(localData);
     else data = await rawLabels(repos, dispatch); // if label list is not present in local storage than get fresh list of labels.
-    console.log(`inside getLabels 2 ${data}`);
     dispatch({
       type: label.GET_LABELS_SUCCESS,
       payload: data
@@ -114,7 +103,7 @@ export const getLabels = (repos) => async (dispatch, getState) => {
     localStorage.setItem('labelslist', JSON.stringify(getState().labelsStore.labelslist));
     localStorage.setItem('date', today);
   } catch (e) {
-    console.log(`getlabels error ${e.message}`);
+    console.error(`getlabels error ${e.message}`);
     dispatch({
       type: label.GET_LABELS_FAIL,
       error: e.message

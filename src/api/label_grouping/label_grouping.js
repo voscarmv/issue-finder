@@ -42,5 +42,5 @@ setTimeout(() => {
 
 // verify normalize label names values
 setTimeout(() => {
-  console.log(norm_labels);
+  console.info(norm_labels);
 }, 3000);
