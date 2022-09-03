@@ -56,9 +56,14 @@ export const setLanguage = (language) => (dispatch) => {
 
 export const rawLabels = async (repos, dispatch) => {
   let rawdata = [];
+  let labels;
   for (let i = 0; i < repos.length; i++) {
     const item = repos[i];
-    const labels = await api.fetchLabels(item.org, item.repo);
+    try {
+      labels = await api.fetchLabels(item.org, item.repo);
+    } catch (e) {
+      console.error(e);
+    }
     for (let j = 0; j < labels.data.length; j++) {
       const label = labels.data[j];
       rawdata.push(label.name);
