@@ -76,7 +76,7 @@ const Home = () => {
           <Select
             variant="static"
             label="Label"
-            selected={(ele) => (ele ? ele.props.children : 'Good First Issue')}
+            selected={(ele) => (ele ? ele.props.children : label)}
             disabled={loading}
             onChange={(label) => setLabel(label)}>
             <Option value="Good First Issue">Good First Issue</Option>
@@ -95,7 +95,7 @@ const Home = () => {
           <Select
             variant="static"
             label="Language"
-            selected={(ele) => (ele ? ele.props.children : 'All')}
+            selected={(ele) => (ele ? ele.props.children : lang)}
             onChange={(language) => setLang(language)}>
             <Option value="ruby">Ruby</Option>
             <Option value="javascript">JavaScript</Option>
