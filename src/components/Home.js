@@ -72,7 +72,7 @@ const Home = () => {
             {loading ? <code className="my-4">Loading...</code> : null}
           </>
         ) : null}
-        <div className="md:flex md:items-end space-y-1 my-4">
+        <div className="md:flex md:items-end space-y-1 gap-3 my-4">
           <Select
             variant="static"
             label="Label"
