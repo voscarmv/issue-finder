@@ -17,6 +17,7 @@ import {
 const Home = () => {
   const [label, setLabel] = useState('Good First Issue');
   const [lang, setLang] = useState('All');
+
   const dispatch = useDispatch();
   useEffect(
     () => {
@@ -26,6 +27,7 @@ const Home = () => {
     []
   );
   const { loading, loadingPercentage, menu } = useSelector((state) => state.labelsStore);
+  const { issuesList } = useSelector((state) => state.issuesStore);
   function findIssues() {
     if (label === 'All') {
       dispatch(epmtyIssuesList());
@@ -39,9 +41,12 @@ const Home = () => {
     }
     dispatch(setLanguage(lang));
   }
+
   return (
     <div className="App">
-      <header className="App-header">
+      <header
+        className="App-header"
+        style={{ minHeight: issuesList || menu === 2 ? '60vh' : '100vh' }}>
         <p className="">Welcome to </p>
         <div className="flex flex-row justify-between">
           <code className="space-x-2">
