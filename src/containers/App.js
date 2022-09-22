@@ -1,7 +1,8 @@
 /* eslint-disable no-undef */
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import pageTrackerAnalytics from './PageTracker';
+import { useLocation } from 'react-router';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -10,6 +11,7 @@ import Labels from '../components/Labels';
 import Issues from '../components/Issues';
 
 function App() {
+  const { pathname, search } = useLocation();
   const analytics = useCallback(() => {
     pageTrackerAnalytics({ path: pathname, search: search, title: pathname.split('/')[1] });
   }, [pathname, search]);
