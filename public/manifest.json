@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Issue Finder",
+  "name": "Best Open Source issue locator for busy Devs!",
   "icons": [
     {
       "src": "logo.jpeg",
