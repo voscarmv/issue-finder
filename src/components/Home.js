@@ -85,7 +85,7 @@ const Home = () => {
             disabled={loading}
             onChange={(label) => setLabel(label)}>
             <Option value="Good First Issue">Good First Issue</Option>
-            <Option value="chores">Chores</Option>
+            <Option value="chore">Chore</Option>
             <Option value="Documentation">Documentation</Option>
             <Option value="Bug">Bug</Option>
             <Option value="Help Wanted">Help Wanted</Option>
