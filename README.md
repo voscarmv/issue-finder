@@ -44,7 +44,7 @@ To get a local copy up and running follow these simple example steps.
 ## Usage
 In your terminal, navigate to your current directory and run this code:
 
-`https://github.com/voscarmv/issue-finder.git`
+`git clone https://github.com/voscarmv/issue-finder.git`
 
 Then run:
 
