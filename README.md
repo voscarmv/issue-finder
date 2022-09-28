@@ -1,7 +1,7 @@
 # Issue-Finder
 A search engine for newbie-friendly github issues.
 
-Your Open Source Finder![Issue Finder](./src/assets/images/issue-finder2.png)
+Your Open Source Finder![Issue Finder](https://user-images.githubusercontent.com/55185309/192666222-de6ea265-0b24-44cc-b1b6-ed5dd8cc6502.png)
 
 ## Issue Finder Live
 [Demo](https://github-issue-finder.netlify.app/)
