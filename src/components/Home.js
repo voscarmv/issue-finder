@@ -49,12 +49,13 @@ const Home = () => {
         style={{ minHeight: issuesList || menu === 2 ? '60vh' : '100vh' }}>
         <p className="">Welcome to </p>
         <div className="flex flex-row justify-between">
-          <code className="space-x-2">
+          <code className="space-x-2 font-bold">
             Issue
             <a
               className=""
               href="https://github.com/voscarmv/issue-finder"
               target="_blank"
+              aria-label="Github"
               rel="noopener noreferrer">
               <VscGithub className="git-icon" />
             </a>
@@ -77,10 +78,12 @@ const Home = () => {
             {loading ? <code className="my-4">Loading...</code> : null}
           </>
         ) : null}
-        <div className="md:flex md:items-end space-y-1 gap-3 my-4">
+        <div className="flex flex-col gap-10 my-4 space-y-1 md:gap-4 md:items-end md:flex-row">
           <Select
             variant="static"
             label="Label"
+            title="Issue label"
+            className="text-white"
             selected={(ele) => (ele ? ele.props.children : label)}
             disabled={loading}
             onChange={(label) => setLabel(label)}>
@@ -93,7 +96,7 @@ const Home = () => {
             <Option value="All">All</Option>
           </Select>
           <Button
-            variant="dark button button-green text-primary w-full h-15"
+            variant="dark button button-green w-full h-15"
             disabled={loading || (menu === 2 && label === 'All')}
             onClick={() => findIssues()}>
             {label === 'All' ? 'Load Labels' : 'Find Issues'}
@@ -101,6 +104,8 @@ const Home = () => {
           <Select
             variant="static"
             label="Language"
+            title="Language"
+            className="text-white"
             selected={(ele) => (ele ? ele.props.children : lang)}
             onChange={(language) => setLang(language)}>
             <Option value="ruby">Ruby</Option>

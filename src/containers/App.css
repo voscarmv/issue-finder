@@ -19,7 +19,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #08070b;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,13 +55,10 @@ input {
 
 label {
   display: block;
-  padding-left: 15px;
-  text-indent: -15px;
+  padding-bottom: 10px;
   font-size: 1.5em;
   width: 12em;
   height: 1.25em;
-  align-items: center;
-  justify-content: center;
   /* border: 2px solid black; */
 }
 
