@@ -8,7 +8,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Home from '../components/Home';
 import Labels from '../components/Labels';
-// import Issues from '../components/Issues';
 
 function App() {
   const { pathname, search } = useLocation();
@@ -21,12 +20,10 @@ function App() {
   }, [analytics]);
 
   const { menu } = useSelector((state) => state.labelsStore);
-  // const { issuesList } = useSelector((state) => state.issuesStore);
   return (
     <>
       <Home />
       {menu === 2 ? <Labels /> : null}
-      {/* {issuesList && menu === 1 ? <Issues /> : menu === 2 ? <Issues /> : null} */}
     </>
   );
 }
