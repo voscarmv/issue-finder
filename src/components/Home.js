@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Issues from './Issues';
 import { getRepos } from '../actions';
 import { SearchEngine } from './SearchEngine';
 import { Select, Option } from '@material-tailwind/react';
@@ -45,8 +46,8 @@ const Home = () => {
   return (
     <div className="App">
       <header
-        className="App-header"
-        style={{ minHeight: issuesList || menu === 2 ? '60vh' : '100vh' }}>
+        className="App-header sticky top-0 left-0 right-0 z-[2]"
+        style={{ minHeight: issuesList || menu === 2 ? '30vh' : '100vh' }}>
         <p className="">Welcome to </p>
         <div className="flex flex-row justify-between">
           <code className="space-x-2 font-bold">
@@ -114,6 +115,7 @@ const Home = () => {
           </Select>
         </div>
       </header>
+      {issuesList && menu === 1 ? <Issues /> : menu === 2 ? <Issues /> : null}
     </div>
   );
 };

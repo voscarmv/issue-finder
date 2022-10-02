@@ -8,8 +8,8 @@ const API = axios.create({
   baseURL: 'https://api.github.com',
   headers: {
     'Content-Type': 'application/json',
-    Authorization: `token ${process.env.REACT_APP_API_KEY}`
-    // Before running npm start, run
+    Authorization: `token ${'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'}`
+    // Before running npm start, run ${process.env.REACT_APP_API_KEY}`
     // export REACT_APP_API_KEY=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
     // Except with your own key generated here https://github.com/settings/tokens
   }
