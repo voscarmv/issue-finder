@@ -21,6 +21,7 @@ const Issues = () => {
     }
   }, [selectedLabels]);
   const issueListFlat = selectedLabels.length ? issuesList?.flat() : null;
+  console.log(issueListFlat);
   return (
     <div className="issue-container">
       <h1 className="filter-title">Issues</h1>
@@ -39,11 +40,19 @@ const Issues = () => {
               <a
                 href={issue.html_url}
                 target="_blank"
-                className="card-link"
+                className="card-link no-underline"
                 rel="noopener noreferrer">
                 <div className="card h-100">
                   <div className="card-body text-center">
-                    <h5 className="card-title align-middle">{issue?.title}</h5>
+                    <h5 className="card-title">{issue?.title}</h5>
+                    <div className="flex flex-wrap text-xs justify-center">
+                      {issue.labels.map((label, id) => (
+                        // <span key={id}>{label.name}</span>
+                        <span key={id} className="border rounded-lg px-2 py-py ml-1 mb-1">
+                          {label.name}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </a>
