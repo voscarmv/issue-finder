@@ -35,29 +35,43 @@ const Issues = () => {
         ) : !selectedLabels.length ? (
           <span className="m-2 h2">No Label Selected</span>
         ) : (
-          issueListFlat.map((issue, i) => (
-            <li key={i}>
-              <a
-                href={issue.html_url}
-                target="_blank"
-                className="card-link no-underline"
-                rel="noopener noreferrer">
-                <div className="card h-100">
-                  <div className="card-body text-center">
-                    <h5 className="card-title">{issue?.title}</h5>
-                    <div className="flex flex-wrap text-xs justify-center">
-                      {issue.labels.map((label, id) => (
-                        // <span key={id}>{label.name}</span>
-                        <span key={id} className="border rounded-lg px-2 py-py ml-1 mb-1">
-                          {label.name}
-                        </span>
-                      ))}
+          issueListFlat.map((issue, i) => {
+            return (
+              <li key={i}>
+                <a
+                  href={issue.html_url}
+                  target="_blank"
+                  className="card-link no-underline"
+                  rel="noopener noreferrer">
+                  <div className="card h-100 pt-2">
+                    {issue.assignees.length > 0 ? (
+                      <span className="border rounded-lg px-2 py-py text-xs absolute right-2 top-2 text-red-400 border-red-400">
+                        Assigned
+                      </span>
+                    ) : (
+                      <span className="border rounded-lg px-2 py-py text-xs absolute right-2 top-2 text-green-500 border-green-500">
+                        Unassigned
+                      </span>
+                    )}
+
+                    <div className="card-body text-center">
+                      <h5 className="card-title">{issue?.title}</h5>
+                      <div className="flex flex-wrap text-xs justify-center">
+                        {issue.labels.map((label, id) => (
+                          <span key={id} className="border rounded-lg px-2 py-py ml-1 mb-1">
+                            {label.name}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="text-xs mt-2">
+                        Created at: {new Date(issue.created_at).toDateString().substr(4)}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </a>
-            </li>
-          ))
+                </a>
+              </li>
+            );
+          })
         )}
       </ul>
     </div>
