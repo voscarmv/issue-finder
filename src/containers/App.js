@@ -25,8 +25,10 @@ function App() {
   return (
     <>
       <Home />
-      {menu === 2 ? <Labels /> : null}
-      {issuesList && menu === 1 ? <Issues /> : menu === 2 ? <Issues /> : null}
+      <div className="absolute top-[60vh] bottom-0 left-0 right-0 ">
+        {menu === 2 ? <Labels /> : null}
+        {issuesList && menu === 1 ? <Issues /> : menu === 2 ? <Issues /> : null}
+      </div>
     </>
   );
 }

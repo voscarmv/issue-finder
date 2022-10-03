@@ -50,7 +50,7 @@ const Home = () => {
   return (
     <div className="App">
       <header
-        className="App-header"
+        className="App-header fixed left-0 right-0 top-0 z-[2]"
         style={{
           minHeight: issuesList || menu === 2 ? '60vh' : '100vh',
           backgroundColor: darkMode ? 'white' : '#08070b',
