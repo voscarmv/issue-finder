@@ -17,6 +17,11 @@ import {
 const Home = () => {
   const [label, setLabel] = useState('Good First Issue');
   const [lang, setLang] = useState('All');
+  const [darkMode, setDarkMode] = useState(false);
+
+  function changeDarkMode() {
+    setDarkMode(!darkMode);
+  }
 
   const dispatch = useDispatch();
   useEffect(
@@ -46,7 +51,18 @@ const Home = () => {
     <div className="App">
       <header
         className="App-header fixed left-0 right-0 top-0 z-[2]"
-        style={{ minHeight: issuesList || menu === 2 ? '60vh' : '100vh' }}>
+        style={{
+          minHeight: issuesList || menu === 2 ? '60vh' : '100vh',
+          backgroundColor: darkMode ? 'white' : '#08070b',
+          color: darkMode ? 'black' : 'white'
+        }}>
+        <div className="absolute top-8 right-8" onClick={changeDarkMode}>
+          <span
+            className="material-icons cursor-pointer"
+            style={{ color: darkMode ? 'black' : 'white' }}>
+            {darkMode ? 'dark' : 'light'}_mode
+          </span>
+        </div>
         <p className="">Welcome to </p>
         <div className="flex flex-row justify-between">
           <code className="space-x-2 font-bold">
@@ -57,12 +73,12 @@ const Home = () => {
               target="_blank"
               aria-label="Github"
               rel="noopener noreferrer">
-              <VscGithub className="git-icon" />
+              <VscGithub className="git-icon" style={{ color: darkMode ? 'black' : '#ffffffb3' }} />
             </a>
             Finder
           </code>
         </div>
-        <em className="my-4 mt-3 text-sm text-white rounded-1 w-80">
+        <em className={`my-4 mt-3 text-sm rounded-1 w-80 text-${darkMode ? 'black' : 'white'}`}>
           Best Open Source issue locator for busy Devs!
         </em>
         {menu === 2 ? (
@@ -83,7 +99,7 @@ const Home = () => {
             variant="static"
             label="Label"
             title="Issue label"
-            className="text-white"
+            className={`text-${darkMode ? 'black' : 'white'}`}
             selected={(ele) => (ele ? ele.props.children : label)}
             disabled={loading}
             onChange={(label) => setLabel(label)}>
@@ -96,7 +112,7 @@ const Home = () => {
             <Option value="All">All</Option>
           </Select>
           <Button
-            variant="dark button button-green w-full h-15"
+            variant={`${darkMode ? 'light' : 'dark'} button button-green w-full h-15`}
             disabled={loading || (menu === 2 && label === 'All')}
             onClick={() => findIssues()}>
             {label === 'All' ? 'Load Labels' : 'Find Issues'}
@@ -105,7 +121,7 @@ const Home = () => {
             variant="static"
             label="Language"
             title="Language"
-            className="text-white"
+            className={`text-${darkMode ? 'black' : 'white'}`}
             selected={(ele) => (ele ? ele.props.children : lang)}
             onChange={(language) => setLang(language)}>
             <Option value="ruby">Ruby</Option>
