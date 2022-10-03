@@ -43,7 +43,7 @@ const Issues = () => {
                   target="_blank"
                   className="card-link no-underline"
                   rel="noopener noreferrer">
-                  <div className="card h-100 pt-2">
+                  <div className="card h-100 py-2 hover:bg-gray-100 transition-all">
                     {issue.assignees.length > 0 ? (
                       <span className="border rounded-lg px-2 py-py text-xs absolute right-2 top-2 text-red-400 border-red-400">
                         Assigned
@@ -54,16 +54,19 @@ const Issues = () => {
                       </span>
                     )}
 
-                    <div className="card-body text-center">
+                    <div className="card-body text-center flex flex-col justify-center">
+                      <span className="uppercase text-sm space-x-2 font-semibold text-pink-400">
+                        {issue.html_url.split('/').length > 4 ? issue.html_url.split('/')[4] : ''}
+                      </span>
                       <h5 className="card-title">{issue?.title}</h5>
-                      <div className="flex flex-wrap text-xs justify-center">
+                      <div className="flex flex-wrap text-xs justify-center items-start">
                         {issue.labels.map((label, id) => (
                           <span key={id} className="border rounded-lg px-2 py-py ml-1 mb-1">
                             {label.name}
                           </span>
                         ))}
                       </div>
-                      <div className="text-xs mt-2">
+                      <div className="text-xs mt-2 absolute bottom-2 self-center">
                         Created at: {new Date(issue.created_at).toDateString().substr(4)}
                       </div>
                     </div>
