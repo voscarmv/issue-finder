@@ -22,35 +22,37 @@ const Issues = () => {
   }, [selectedLabels]);
   const issueListFlat = selectedLabels.length ? issuesList?.flat() : null;
   return (
-    <div className="issue-container">
+    <div className="issue-container h-100 d-flex flex-column">
       <h1 className="filter-title">Issues</h1>
-      <ul className="grid xxl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-2 p-2">
-        {loading ? (
-          <div className="spinner-border m-5" role="status">
-            <span className="sr-only">Loading...</span>
-          </div>
-        ) : !issuesList?.length && selectedLabels?.length ? (
-          <span className="m-2 h2">No Issue Found</span>
-        ) : !selectedLabels.length ? (
-          <span className="m-2 h2">No Label Selected</span>
-        ) : (
-          issueListFlat.map((issue, i) => (
-            <li key={i}>
-              <a
-                href={issue.html_url}
-                target="_blank"
-                className="card-link"
-                rel="noopener noreferrer">
-                <div className="card h-100">
-                  <div className="card-body text-center">
-                    <h5 className="card-title align-middle">{issue?.title}</h5>
+      <div className="overflow-y-scroll">
+        <ul className="grid xxl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-2 p-2">
+          {loading ? (
+            <div className="spinner-border m-5" role="status">
+              <span className="sr-only">Loading...</span>
+            </div>
+          ) : !issuesList?.length && selectedLabels?.length ? (
+            <span className="m-2 h2">No Issue Found</span>
+          ) : !selectedLabels.length ? (
+            <span className="m-2 h2">No Label Selected</span>
+          ) : (
+            issueListFlat.map((issue, i) => (
+              <li key={i}>
+                <a
+                  href={issue.html_url}
+                  target="_blank"
+                  className="card-link"
+                  rel="noopener noreferrer">
+                  <div className="card  h-100">
+                    <div className="w-100 card-body text-center">
+                      <h5 className="card-title align-middle">{issue?.title}</h5>
+                    </div>
                   </div>
-                </div>
-              </a>
-            </li>
-          ))
-        )}
-      </ul>
+                </a>
+              </li>
+            ))
+          )}
+        </ul>
+      </div>
     </div>
   );
 };
