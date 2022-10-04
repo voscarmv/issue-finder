@@ -33,8 +33,8 @@ To get a local copy running on your browser follow this workflow:
 
 Apply Linter checks with the following instructions
 
-- Run `npx run lint` to view errors. 
-- Run `npx eslint . --fix` to fix multiple errors.
+- Run `npm run lint` to view errors. 
+- Run `npm run lint:fix` to fix multiple errors.
 
 ## Contributing to Issue Finder
 
