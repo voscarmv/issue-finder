@@ -13,31 +13,33 @@ const Labels = () => {
     else dispatch(removeFromSelectLabels(label));
   }
   return (
-    <div className="label-container">
+    <div className="label-container h-100 d-flex flex-column">
       <h1 className="filter-title">Labels</h1>
-      <ul className="grid xxl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-2 p-2">
-        {labelslist ? (
-          labelslist.map((label, i) => (
-            <li key={i}>
+      <div className="overflow-y-scroll">
+        <ul className="grid xxl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-2 p-2">
+          {labelslist ? (
+            labelslist.map((label, i) => (
+              <li key={i}>
+                <label>
+                  <input
+                    type="checkbox"
+                    onClick={(e) => handleLabelSelection(label, e.target.checked)}
+                  />
+                  <code>{label}</code>
+                </label>
+              </li>
+            ))
+          ) : (
+            <li>
               <label>
-                <input
-                  type="checkbox"
-                  onClick={(e) => handleLabelSelection(label, e.target.checked)}
-                />
-                <code>{label}</code>
+                <div className="spinner-border m-5" role="status">
+                  <span className="sr-only">Loading...</span>
+                </div>
               </label>
             </li>
-          ))
-        ) : (
-          <li>
-            <label>
-              <div className="spinner-border m-5" role="status">
-                <span className="sr-only">Loading...</span>
-              </div>
-            </label>
-          </li>
-        )}
-      </ul>
+          )}
+        </ul>
+      </div>
     </div>
   );
 };

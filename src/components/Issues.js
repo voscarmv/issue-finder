@@ -23,8 +23,10 @@ const Issues = () => {
   const issueListFlat = selectedLabels.length ? issuesList?.flat() : null;
   console.log(issueListFlat);
   return (
-    <div className="issue-container">
+    <div className="issue-container h-100 d-flex flex-column">
       <h1 className="filter-title">Issues</h1>
+
+    <div className="overflow-y-scroll">
       <ul className="grid xxl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-2 p-2">
         {loading ? (
           <div className="spinner-border m-5" role="status">
@@ -77,6 +79,7 @@ const Issues = () => {
           })
         )}
       </ul>
+      </div>
     </div>
   );
 };
