@@ -6,32 +6,35 @@ To get a local copy up and running follow these simple example steps.
 ## Pre-requisites
 - Text Editor | Git and Github set up
   
+## How do I submit a Pull Request (PR)?
+
+Contributing follows this workflow:
+
+1. Fork [this project repository](https://github.com/voscarmv/issue-finder).
+2. Clone the forked repository to your computer.
+   - `git clone https://github.com/<your-github-username>/issue-finder.git`
+   - `cd issue-finder`
+3. Create and switch into a new branch.
+   -  `git checkout -b my-branch-name`
+   -  Open the project in your favorite code editor `code .` for VS Code.
+4. Update or add to the existing code from the issue assigned to you and commit the changes.
+5. Make a PR to merge your fork with this repo.
 ## Usage
-In your terminal, navigate to your current directory and run this code:
 
-`git clone https://github.com/voscarmv/issue-finder.git`
+To get a local copy running on your browser follow this workflow:
 
-Then run:
+- Run npm install to load necessary files from package.json
+- Run `touch .env`
+- > Generate your GitHub token here https://github.com/settings/tokens
+- Run `echo REACT_APP_API_KEY=ghp_my_github_token > .env`
+- Then in your terminal run `npm start` and view app in your browser 
 
-`cd issue-finder`
+## Running code checks
 
-Open the project in your favorite code editor `code .` for VS Code.
+Apply Linter checks with the following instructions
 
-
-### Dependencies
-- Run npm install - to load necessary files from package.json
-- Export REACT_APP_API_KEY=ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-> Except with your own key generated here https://github.com/settings/tokens
-
-- Then in your terminal type `npm start` and view app in your browser 
-
-### Linter Setup
-- Apply Linter checks with the following instructions
-
-* Eslint: To find and fix script errors, run `npm install --save-dev eslint@7.x eslint-config-airbnb@18.x eslint-plugin-import@2.x eslint-plugin-jsx-a11y@6.x eslint-plugin-react@7.x eslint-plugin-react-hooks@4.x @babel/eslint-parser@7.x @babel/core@7.x  @babel/plugin-syntax-jsx@7.x  @babel/preset-react@7.x @babel/preset-react@7.x`
-After, create a `.eslintrc.json` file.
-Then run `npx eslint .` to print errors. 
-Use `npx eslint . --fix` to fix multiple errors.
+- Run `npx run lint` to view errors. 
+- Run `npx eslint . --fix` to fix multiple errors.
 
 ## Contributing to Issue Finder
 
