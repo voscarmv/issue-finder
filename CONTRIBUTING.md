@@ -23,7 +23,7 @@ Contributing follows this workflow:
 
 To get a local copy running on your browser follow this workflow:
 
-- Run npm install to load necessary files from package.json
+- Run `npm install` to load necessary files from package.json
 - Run `touch .env`
 - > Generate your GitHub token here https://github.com/settings/tokens
 - Run `echo REACT_APP_API_KEY=ghp_my_github_token > .env`
