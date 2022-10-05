@@ -24,7 +24,12 @@ const Issues = () => {
   console.log(issueListFlat);
   return (
     <div className="issue-container h-100 d-flex flex-column">
-      <h1 className="filter-title">Issues</h1>
+      <div className="issue-header">
+        <div className="filter-title text-center">
+          <h1 className="filter-title text-center">Issues</h1>
+          <span>{selectedLabels.length ? issueListFlat?.length : 0} available issues</span>
+        </div>
+      </div>
 
       <div className="overflow-y-scroll">
         <ul className="grid gap-2 p-2 xxl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
