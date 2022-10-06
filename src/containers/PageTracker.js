@@ -1,6 +1,6 @@
 import { GA4React } from 'ga-4-react';
 
-const ga4react = new GA4React('G-C28740E7D5').initialize();
+const ga4react = new GA4React(process.env.REACT_APP_MEASUREMENTID).initialize();
 
 export const ANALYTICSDATA = {
   path: '',
