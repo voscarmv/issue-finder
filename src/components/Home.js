@@ -48,11 +48,11 @@ const Home = () => {
   }
 
   return (
-    <div className="App">
+    <div className="App sticky top-0 z-50">
       <header
-        className="App-header fixed left-0 right-0 top-0 z-[2]"
+        className="App-header left-0 right-0 top-0 z-[2]"
         style={{
-          minHeight: issuesList || menu === 2 ? '60vh' : '100vh',
+          minHeight: issuesList || menu === 2 ? '10vh' : '100vh',
           backgroundColor: darkMode ? 'white' : '#08070b',
           color: darkMode ? 'black' : 'white'
         }}>
@@ -63,8 +63,18 @@ const Home = () => {
             {darkMode ? 'dark' : 'light'}_mode
           </span>
         </div>
-        <p className="">Welcome to </p>
-        <div className="flex flex-row justify-between">
+        <p
+          style={{
+            display: issuesList ? 'none' : 'block'
+          }}
+          className="">
+          Welcome to{' '}
+        </p>
+        <div
+          style={{
+            paddingTop: issuesList ? '12px' : ''
+          }}
+          className="flex flex-row justify-between">
           <code className="space-x-2 font-bold">
             Issue
             <a
@@ -78,7 +88,11 @@ const Home = () => {
             Finder
           </code>
         </div>
-        <em className={`my-4 mt-3 text-sm rounded-1 w-80 text-${darkMode ? 'black' : 'white'}`}>
+        <em
+          style={{
+            display: issuesList ? 'none' : 'block'
+          }}
+          className={`my-4 mt-3 text-sm rounded-1 w-80 text-${darkMode ? 'black' : 'white'}`}>
           Best Open Source issue locator for busy Devs!
         </em>
         {menu === 2 ? (
