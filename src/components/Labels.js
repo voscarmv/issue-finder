@@ -14,7 +14,9 @@ const Labels = () => {
   }
   return (
     <div className="label-container h-100 d-flex flex-column">
-      <h1 className="filter-title">Labels</h1>
+      <div className="filter-title text-center bg-dark">
+        <h1 className="text-white h2">Labels</h1>
+      </div>
       <div className="overflow-y-scroll">
         {labelslist ? (
           <ul className="grid xxl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-2 p-2">

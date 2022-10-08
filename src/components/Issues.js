@@ -24,8 +24,8 @@ const Issues = () => {
   return (
     <div className="issue-container h-100 d-flex flex-column">
       <div className="issue-header">
-        <div className="filter-title text-center">
-          <h1 className="filter-title text-center">Issues</h1>
+        <div className="filter-title text-center bg-dark">
+          <h1 className="text-white h2">Issues</h1>
           <span>{selectedLabels.length ? issueListFlat?.length : 0} available issues</span>
         </div>
       </div>
