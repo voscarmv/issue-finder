@@ -32,17 +32,25 @@ const Issues = () => {
       </div>
 
       <div className="overflow-y-scroll">
-        <ul className="grid gap-2 p-2 xxl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-          {loading ? (
-            <div className="m-5 spinner-border" role="status">
-              <span className="sr-only">Loading...</span>
+        {loading && (
+          <div className="w-full text-center p-4">
+            <div className="spinner-border text-center" role="status">
+              <span className="sr-only ">Loading...</span>
             </div>
-          ) : !issuesList?.length && selectedLabels?.length ? (
+          </div>
+        )}
+
+        {!loading && !issuesList?.length && selectedLabels?.length ? (
+          <div className="w-full text-center p-4">
             <span className="m-2 h2">No Issue Found</span>
-          ) : !selectedLabels.length ? (
+          </div>
+        ) : !selectedLabels.length ? (
+          <div className="w-full text-center p-4">
             <span className="m-2 h2">No Label Selected</span>
-          ) : (
-            issueListFlat.map((issue, i) => {
+          </div>
+        ) : (
+          <ul className="grid gap-2 p-2 xxl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+            {issueListFlat.map((issue, i) => {
               return (
                 <li key={i}>
                   <a
@@ -81,9 +89,9 @@ const Issues = () => {
                   </a>
                 </li>
               );
-            })
-          )}
-        </ul>
+            })}
+          </ul>
+        )}
       </div>
     </div>
   );

@@ -61,6 +61,9 @@
     <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"></script>
     <script>
       tailwind.config = {
+        corePlugins: {
+          preflight: false
+        },
         theme: {
           extend: {
             fontFamily: {
