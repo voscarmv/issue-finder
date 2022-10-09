@@ -108,7 +108,7 @@ const Home = () => {
             {loading ? <code className="my-4">Loading...</code> : null}
           </>
         ) : null}
-        <div className="flex flex-col gap-10 my-4 space-y-1 md:gap-4 md:items-end md:flex-row">
+        <div className="flex flex-col gap-10 my-4 space-y-1 sm:gap-4 sm:items-end sm:flex-row">
           <Select
             variant="static"
             label="Label"
