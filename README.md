@@ -2,13 +2,38 @@
 
 > A search engine to find newbie-friendly github issues. The issue finder helps you find a list of beginner-friendly GitHub repos, backed by Y Combinator, that have Ruby and Javascript issues that are good for new contributors.
 
-Watch [this short video](https://youtu.be/Jl4GdOiZ4tk) for additional details and a chance to join our Whatsapp group! Feel free to join and contribute :)
+Watch [this short video](https://youtu.be/Qf5VvoZmzNo) to discover the initial inspiration to create Issue Finder and learn the basics of Open Source. 
 
 Your Open Source Finder![Issue Finder](https://user-images.githubusercontent.com/55185309/192666222-de6ea265-0b24-44cc-b1b6-ed5dd8cc6502.png)
 
 ## Issue Finder Live
 
 [Demo](https://github-issue-finder.netlify.app/)
+
+## Learn About Issue Finder from the first Contributors
+
+### Issue Scraper Logic - Repository Owner
+[Video: Oscar Mier](https://youtu.be/Jl4GdOiZ4tk)
+
+### React/Redux Logic | API's | Actions - Project Maintainer
+[Video: Shadman Ali](https://lnkd.in/gmua_37B)
+
+### UI - Project Maintainer
+[Video: Steve W Dames Jr](https://lnkd.in/emedpJqU)
+
+### Data Retrieval From Github API
+[Video: Jose Ramon Castaños](https://lnkd.in/en2wkyaH)
+
+### API Request from Y Combinator
+[Video: Ricardo Valtierra](https://bit.ly/3Sg7aPF)
+
+> Honorable Mentions:
+
+### Firebase Analytics
+
+[Linkedin Post: Denis Lafontant](https://www.linkedin.com/feed/update/urn:li:activity:6980560571465146368?utm_source=share&utm_medium=member_desktop)
+
+
 
 ## Built With
 
@@ -147,6 +172,8 @@ Make some coffee in the time you saved finding an amazing issue for your next co
 - LinkedIn: [Denis Lafontant](https://www.linkedin.com/in/denis-lafontant-37031439/)
 
 ## 🤝 Contributing
+
+Join our [Whatsapp group](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbVphS0JSZ3I0YkkwZDZqVm0wa18tRV9nZE0xd3xBQ3Jtc0tuZXhkZ0hYNEp5c0tlLTZMclVGby1YaHpkZ0FIdHhnNEswNUwxR3Nra0YtTHFncXBGbWFFcUNhSVRlTlNFRVF2TlZoRHlzTnZTcm5tOGVHQm9SM3ZESzJ3dExZUmd5QnFuVWV1aVhFZWNRRm5ZMWdNTQ&q=https%3A%2F%2Fchat.whatsapp.com%2FDaV0lQYApPDJcI2Nz2GlYD&v=Jl4GdOiZ4tk)!
 
 Contributions, issues, and feature requests are welcome!
 
