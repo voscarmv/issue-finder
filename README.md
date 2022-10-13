@@ -2,6 +2,8 @@
 
 > A search engine to find newbie-friendly github issues. The issue finder helps you find a list of beginner-friendly GitHub repos, backed by Y Combinator, that have Ruby and Javascript issues that are good for new contributors.
 
+Watch [this video](https://youtu.be/Jl4GdOiZ4tk) for additional details and a chance to join our Whatsapp group! Feel free to join and contribute :)
+
 Your Open Source Finder![Issue Finder](https://user-images.githubusercontent.com/55185309/192666222-de6ea265-0b24-44cc-b1b6-ed5dd8cc6502.png)
 
 ## Issue Finder Live
