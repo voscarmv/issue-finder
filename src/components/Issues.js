@@ -16,6 +16,10 @@ const Issues = () => {
             dispatch(getIssues(reposlist[i].org, reposlist[i].repo, selectedLabels[j]));
           else if (language.toLowerCase() === reposlist[i].language.trim().toLowerCase())
             dispatch(getIssues(reposlist[i].org, reposlist[i].repo, selectedLabels[j]));
+          else if (
+            reposlist[i].topics.trim().toLowerCase().split(' ').includes(language.toLowerCase())
+          )
+            dispatch(getIssues(reposlist[i].org, reposlist[i].repo, selectedLabels[j]));
         }
       }
     }

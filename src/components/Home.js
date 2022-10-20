@@ -133,13 +133,15 @@ const Home = () => {
           </Button>
           <Select
             variant="static"
-            label="Language"
-            title="Language"
+            label="Language / Framework"
+            title="Language / Framework"
             className={`text-${darkMode ? 'black' : 'white'}`}
             selected={(ele) => (ele ? ele.props.children : lang)}
             onChange={(language) => setLang(language)}>
             <Option value="ruby">Ruby</Option>
             <Option value="javascript">JavaScript</Option>
+            <Option value="reactjs">React</Option>
+            <Option value="vuejs">Vuejs</Option>
             <Option value="All">All</Option>
           </Select>
         </div>
