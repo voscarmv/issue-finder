@@ -12,12 +12,12 @@ const Issues = () => {
     if (reposlist) {
       for (let i = 0; i < reposlist.length; i++) {
         for (let j = 0; j < selectedLabels.length; j++) {
-          if (language == 'All')
+          if (language === 'All')
             dispatch(getIssues(reposlist[i].org, reposlist[i].repo, selectedLabels[j]));
           else if (language.toLowerCase() === reposlist[i].language.trim().toLowerCase())
             dispatch(getIssues(reposlist[i].org, reposlist[i].repo, selectedLabels[j]));
           else if (
-            reposlist[i].topics.trim().toLowerCase().split(' ').includes(language.toLowerCase())
+            reposlist[i]?.topics?.trim().toLowerCase().split(' ').includes(language.toLowerCase())
           )
             dispatch(getIssues(reposlist[i].org, reposlist[i].repo, selectedLabels[j]));
         }
