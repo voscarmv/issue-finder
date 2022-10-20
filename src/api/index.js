@@ -16,7 +16,7 @@ const API = axios.create({
 });
 const reposList =
   process.env.REACT_APP_REPOS_LIST_URL ||
-  'https://raw.githubusercontent.com/voscarmv/ycombinator_githubs/main/06_repos.json';
+  'https://raw.githubusercontent.com/shadmanhere/ycombinator_githubs/main/06_repos.json';
 
 export const fetchRepos = async () => await axios.get(reposList);
 export const fetchLabels = async (org, repo) => await API.get(`/repos/${org}/${repo}/labels`);
