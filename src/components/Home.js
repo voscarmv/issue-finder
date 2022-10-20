@@ -143,7 +143,6 @@ const Home = () => {
             <Option value="vuejs">Vuejs</Option>
             <Option value="ruby">Ruby</Option>
             <Option value="rails">Rails</Option>
-            <Option value="All">All</Option>
           </Select>
         </div>
       </header>
