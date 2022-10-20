@@ -7,6 +7,7 @@ const Issues = () => {
   const reposlist = useSelector((state) => state.reposStore.reposlist);
   const { loading, issuesList, language } = useSelector((state) => state.issuesStore);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(epmtyIssuesList());
     if (reposlist) {

@@ -139,7 +139,7 @@ const Home = () => {
             selected={(ele) => (ele ? ele.props.children : lang)}
             onChange={(language) => setLang(language)}>
             <Option value="javascript">JavaScript</Option>
-            <Option value="reactjs">React</Option>
+            <Option value="react">React</Option>
             <Option value="vuejs">Vuejs</Option>
             <Option value="ruby">Ruby</Option>
             <Option value="rails">Rails</Option>
