@@ -16,7 +16,7 @@ import {
 
 const Home = () => {
   const [label, setLabel] = useState('Good First Issue');
-  const [lang, setLang] = useState('All');
+  const [lang, setLang] = useState('JavaScript');
   const [darkMode, setDarkMode] = useState(false);
 
   function changeDarkMode() {
@@ -133,14 +133,16 @@ const Home = () => {
           </Button>
           <Select
             variant="static"
-            label="Language"
-            title="Language"
+            label="Language / Framework"
+            title="Language / Framework"
             className={`text-${darkMode ? 'black' : 'white'}`}
             selected={(ele) => (ele ? ele.props.children : lang)}
             onChange={(language) => setLang(language)}>
-            <Option value="ruby">Ruby</Option>
             <Option value="javascript">JavaScript</Option>
-            <Option value="All">All</Option>
+            <Option value="react">React</Option>
+            <Option value="vuejs">Vuejs</Option>
+            <Option value="ruby">Ruby</Option>
+            <Option value="rails">Rails</Option>
           </Select>
         </div>
       </header>
