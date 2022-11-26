@@ -2,7 +2,7 @@
 
 > A search engine to find newbie-friendly github issues. The issue finder helps you find a list of beginner-friendly GitHub repos, backed by Y Combinator, that have Ruby and Javascript issues that are good for new contributors.
 
-Watch [this short video](https://youtu.be/Qf5VvoZmzNo) to discover the initial inspiration to create Issue Finder and learn the basics of Open Source. 
+Watch [this short video](https://youtu.be/Qf5VvoZmzNo) to discover the initial inspiration to create Issue Finder and learn the basics of Open Source.
 
 Your Open Source Finder![Issue Finder](https://user-images.githubusercontent.com/55185309/192666222-de6ea265-0b24-44cc-b1b6-ed5dd8cc6502.png)
 
@@ -13,18 +13,23 @@ Your Open Source Finder![Issue Finder](https://user-images.githubusercontent.com
 ## Learn About Issue Finder from the first Contributors
 
 ### Issue Scraper Logic - Repository Owner
+
 [Video: Oscar Mier](https://youtu.be/Jl4GdOiZ4tk)
 
 ### React/Redux Logic | API's | Actions - Project Maintainer
+
 [Video: Shadman Ali](https://lnkd.in/gmua_37B)
 
 ### UI - Project Maintainer
+
 [Video: Steve W Dames Jr](https://lnkd.in/emedpJqU)
 
 ### Data Retrieval From Github API
+
 [Video: Jose Ramon Castaños](https://lnkd.in/en2wkyaH)
 
 ### API Request from Y Combinator
+
 [Video: Ricardo Valtierra](https://bit.ly/3Sg7aPF)
 
 > Honorable Mentions:
@@ -32,8 +37,6 @@ Your Open Source Finder![Issue Finder](https://user-images.githubusercontent.com
 ### Firebase Analytics
 
 [Linkedin Post: Denis Lafontant](https://www.linkedin.com/feed/update/urn:li:activity:6980560571465146368?utm_source=share&utm_medium=member_desktop)
-
-
 
 ## Built With
 
@@ -90,9 +93,7 @@ Open the project in your favorite code editor `code .` for VS Code.
 - Run `touch .env`
 - > Generate your GitHub token here https://github.com/settings/tokens
 - Run `echo REACT_APP_API_KEY=ghp_my_github_token > .env` make sure you replace `ghp_my_github_token` with your generated token
-- Then in your terminal type `npm start` and view app in your browser
-
-- Then in your terminal run `npm start` and view app in your browser 
+- Then in your terminal run `npm start` and view app in your browser
 
 ### Linter Setup
 
