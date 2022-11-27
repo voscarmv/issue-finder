@@ -39,7 +39,7 @@ const Issues = () => {
   };
 
   useEffect(() => {
-    const filteredList = issueListFlat.filter((issue) => {
+    const filteredList = issueListFlat?.filter((issue) => {
       if (filter == 'Assigned') return issue.assignees.length > 0;
       if (filter == 'Unassigned') return issue.assignees.length == 0;
       return true;
@@ -101,7 +101,7 @@ const Issues = () => {
         </div>
       ) : (
         <ul className="grid gap-2 p-2 xxl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-          {(filter == 'All' ? issueListFlat : filteredList).map((issue, i) => {
+          {(filter == 'All' ? issueListFlat : filteredList)?.map((issue, i) => {
             return (
               <li key={i}>
                 <a
