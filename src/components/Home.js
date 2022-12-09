@@ -143,6 +143,9 @@ const Home = () => {
             <Option value="vuejs">Vuejs</Option>
             <Option value="ruby">Ruby</Option>
             <Option value="rails">Rails</Option>
+            <Option value="java">Java</Option>
+            <Option value="python">Python</Option>
+            <Option value="c++">C++</Option>
           </Select>
         </div>
       </header>
