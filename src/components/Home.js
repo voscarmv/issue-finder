@@ -127,7 +127,7 @@ const Home = () => {
           </Select>
           <Button
             variant={`${darkMode ? 'light' : 'dark'} button button-green w-full h-15`}
-            disabled={loading || (menu === 2 && label === 'All')}
+            disabled={loading}
             onClick={() => findIssues()}>
             {label === 'All' ? 'Load Labels' : 'Find Issues'}
           </Button>

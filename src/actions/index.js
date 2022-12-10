@@ -76,7 +76,7 @@ export const rawLabels = async (repos, dispatch) => {
   return rawdata;
 };
 
-export const getLabels = (repos) => async (dispatch, getState) => {
+export const getLabels = (repos, language) => async (dispatch, getState) => {
   if (repos === undefined) return;
   dispatch({
     type: label.GET_LABELS_REQUEST,
@@ -84,7 +84,8 @@ export const getLabels = (repos) => async (dispatch, getState) => {
   });
   try {
     // get date for list of labels, saved in browser's local strorage
-    const localDataDate = localStorage.getItem('date');
+    const localStorageObj = JSON.parse(localStorage.getItem(language + '_labelslist'));
+    const localDataDate = localStorageObj?.date;
     let today = new Date();
     const dd = String(today.getDate()).padStart(2, '0');
     const mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -92,21 +93,22 @@ export const getLabels = (repos) => async (dispatch, getState) => {
     today = (mm + dd + yyyy).toString();
     // if date, when data was saved, is more than a day, clear it.
     if (localDataDate !== today) {
-      localStorage.removeItem('labelslist');
-      localStorage.removeItem('date');
+      localStorage.removeItem(language + '_labelslist');
     }
 
     // get label list from local storage
-    const localData = localStorage.getItem('labelslist');
+    const localData = localStorageObj?.labels;
     let data = '';
-    if (localData) data = JSON.parse(localData);
+    if (localData) data = localData;
     else data = await rawLabels(repos, dispatch); // if label list is not present in local storage than get fresh list of labels.
     dispatch({
       type: label.GET_LABELS_SUCCESS,
       payload: data
     });
-    localStorage.setItem('labelslist', JSON.stringify(getState().labelsStore.labelslist));
-    localStorage.setItem('date', today);
+    localStorage.setItem(
+      language + '_labelslist',
+      JSON.stringify({ language: language, date: today, labels: getState().labelsStore.labelslist })
+    );
   } catch (e) {
     console.error(`getlabels error ${e.message}`);
     dispatch({
