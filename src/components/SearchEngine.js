@@ -17,6 +17,6 @@ export const SearchEngine = () => {
       dispatch(getLabels(filteredRepolist, language));
     },
     // eslint-disable-next-line
-    [repos]
+    [repos, language]
   );
 };
