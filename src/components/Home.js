@@ -113,7 +113,7 @@ const Home = () => {
             variant="static"
             label="Label"
             title="Issue label"
-            className={`text-${darkMode ? 'black' : 'white'}`}
+            className={`text-${darkMode ? 'black' : 'white'} w-64`}
             selected={(ele) => (ele ? ele.props.children : label)}
             disabled={loading}
             onChange={(label) => setLabel(label)}>
