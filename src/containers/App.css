@@ -4,7 +4,7 @@
 
 .github-source {
   text-decoration: none;
-  color: gray ;
+  color: gray;
 }
 
 .App-logo {
@@ -66,7 +66,8 @@ code {
   margin-left: 0.25em;
 }
 
-.label-container,.issue-container{
+.label-container,
+.issue-container {
   border: 0.5em solid #282c34;
   min-height: 90vh;
 }
@@ -86,11 +87,11 @@ code {
   color: white;
   margin: 0;
   padding-left: 0.25em;
-  padding-bottom: 0.3em;;
+  padding-bottom: 0.3em;
 }
 
 .App-title {
- word-wrap: none;
+  word-wrap: none;
 }
 
 .git-icon {
