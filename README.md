@@ -1,6 +1,6 @@
 # Issue-Finder
 
-> A search engine to find newbie-friendly github issues. The issue finder helps you find a list of beginner-friendly GitHub repos, backed by Y Combinator, that have Ruby and Javascript issues that are good for new contributors.
+> A search engine to find newbie-friendly GitHub issues. The issue finder helps you find a list of beginner-friendly GitHub repos, backed by Y Combinator, that have Ruby and Javascript issues that are good for new contributors.
 
 👉 Watch [this YouTube video](https://www.youtube.com/watch?v=4IpDhjib56g) for a quick user's guide!
 
@@ -63,36 +63,74 @@ Your Open Source Finder![Issue Finder](https://user-images.githubusercontent.com
 ![Cell](src/assets/images/screen1.png)
 ![Desktop](src/assets/images/screen2.png)
 
-## Getting Started
+## Contribute to Issue Finder
 
-To get a local copy up and running follow these simple example steps.
+### Pre-requisites
 
-## Pre-requisites
+- Code Editor, e.g. VS Code
+- Git and a GitHub account
 
-- Text Editor
-- Git and Github set up
+### Getting Started
 
-## Usage
+Getting a local copy of Issue Finder up and running is easy with these following steps.
 
-In your terminal, navigate to the directory you would like to store the project and run this code:
+### Clone the repository
 
-`git clone https://github.com/voscarmv/issue-finder.git`
+In your terminal, navigate to the directory you would like to store the project and run the git-command:
 
-Then run:
+```bash
+git clone https://github.com/voscarmv/issue-finder.git
+```
 
-`cd issue-finder`
+After the git-command navigate into the project folder using `cd`:
 
-Open the project in your favorite code editor `code .` for VS Code.
+```bash
+cd issue-finder
+```
 
-### Dependencies
+Now you can open the project in your favorite code editor.
 
-- Run `npm install` - to install the necessary packages listed in the package.json file
-- Run `touch .env`
-- > Generate your GitHub token here https://github.com/settings/tokens
-- Run `echo REACT_APP_API_KEY=ghp_my_github_token > .env` make sure you replace `ghp_my_github_token` with your generated token
-- Then in your terminal type `npm start` and view app in your browser
+> [!NOTE]
+> For VS Code you can use the command `code .` to quickly open projects in the editor. 
 
-- Then in your terminal run `npm start` and view app in your browser 
+### Install dependencies
+
+After you have cloned the project and have navigated into the project. You 
+need to install the required dependencies using `npm`, or your perferred package manager:
+
+```bash
+npm install
+```
+
+### Configure your environment
+
+You will also need to create a `.env` file to later store your GitHub access token in.
+
+> [!NOTE]
+> The access token is needed for the app to make API calls to GitHub.
+
+```bash
+touch .env
+```
+
+With the `.env` file created, you can generate an access token [in your settings](https://github.com/settings/tokens) and add that access token to the `REACT_APP_API_KEY` variable.
+
+```bash
+echo REACT_APP_API_KEY=ghp_my_github_token > .env
+```
+
+Your token will start with either `ghp_` or `github_pat_`, depending on if you generated a classic token or a fine-tuned token. Both will work for this application.
+
+> [!IMPORTANT]
+> The GitHub access token doesn't need any scopes to function.
+
+### Run the application
+
+Now that the dependencies are installed and your environment is setup. You can run the application using `npm` or your perferred package manager:
+
+```bash
+npm start
+```
 
 ### Linter Setup
 
