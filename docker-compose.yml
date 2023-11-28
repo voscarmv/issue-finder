@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+    react-app:
+        build:
+            context: ./
+            target: development-build-stage
+        environment:
+            WATCHPACK_POLLING: "true"
+        ports:
+            - "${APP_PORT:-3000}:3000"
+        volumes:
+            - ./:/app
+            - /app/node_modules
+        restart: "unless-stopped"
+        
