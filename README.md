@@ -209,6 +209,13 @@ Make some coffee in the time you saved finding an amazing issue for your next co
 - Twitter: [@heracles2k5](https://twitter.com/heracles2k5)
 - LinkedIn: [Denis Lafontant](https://www.linkedin.com/in/denis-lafontant-37031439/)
 
+## ✨ Contributors
+Thank you for your <strong>commitment and tireless efforts</strong>. The value you bring to our team is <strong>priceless</strong>, and we deeply appreciate your contributions. Your admirable dedication and unwavering commitment are truly commendable. Thanks for all that you do to support our team.
+
+<a href="https://github.com/voscarmv/issue-finder/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=voscarmv/issue-finder" />
+</a>
+
 ## 🤝 Contributing
 
 Join our [Whatsapp group](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbVphS0JSZ3I0YkkwZDZqVm0wa18tRV9nZE0xd3xBQ3Jtc0tuZXhkZ0hYNEp5c0tlLTZMclVGby1YaHpkZ0FIdHhnNEswNUwxR3Nra0YtTHFncXBGbWFFcUNhSVRlTlNFRVF2TlZoRHlzTnZTcm5tOGVHQm9SM3ZESzJ3dExZUmd5QnFuVWV1aVhFZWNRRm5ZMWdNTQ&q=https%3A%2F%2Fchat.whatsapp.com%2FDaV0lQYApPDJcI2Nz2GlYD&v=Jl4GdOiZ4tk)!
