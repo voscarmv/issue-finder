@@ -13,6 +13,7 @@ import {
   toggleLabelList,
   setLanguage
 } from '../actions';
+import GitHubAuth from './GithubAuth';
 
 const Home = () => {
   const [label, setLabel] = useState('Good First Issue');
@@ -56,6 +57,7 @@ const Home = () => {
           backgroundColor: darkMode ? 'white' : '#08070b',
           color: darkMode ? 'black' : 'white'
         }}>
+        <GitHubAuth />
         <div className="absolute top-8 right-8" onClick={changeDarkMode}>
           <span
             className="material-icons cursor-pointer"
