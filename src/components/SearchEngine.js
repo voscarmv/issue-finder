@@ -6,7 +6,7 @@ export const SearchEngine = () => {
   const dispatch = useDispatch();
   const repos = useSelector((state) => state.reposStore);
   const { language } = useSelector((state) => state.issuesStore);
-
+  const access_token = useSelector((state) => state.githubauthStore.data?.access_token);
   useEffect(
     () => {
       const filteredRepolist = repos.reposlist.filter(
@@ -14,7 +14,7 @@ export const SearchEngine = () => {
           repo.language.trim() === language ||
           repo.topics?.trim().toLowerCase().split(' ').includes(language.toLowerCase())
       );
-      dispatch(getLabels(filteredRepolist, language));
+      dispatch(getLabels(filteredRepolist, language, access_token));
     },
     // eslint-disable-next-line
     [repos, language]

@@ -7,7 +7,7 @@ const Issues = () => {
   const selectedLabels = useSelector((state) => state.selectedLabelsStore);
   const reposlist = useSelector((state) => state.reposStore.reposlist);
   const { loading, issuesList, language } = useSelector((state) => state.issuesStore);
-
+  const access_token = useSelector((state) => state.githubauthStore.data?.access_token);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,13 +16,19 @@ const Issues = () => {
       for (let i = 0; i < reposlist.length; i++) {
         for (let j = 0; j < selectedLabels.length; j++) {
           if (language === 'All')
-            dispatch(getIssues(reposlist[i].org, reposlist[i].repo, selectedLabels[j]));
+            dispatch(
+              getIssues(reposlist[i].org, reposlist[i].repo, selectedLabels[j], access_token)
+            );
           else if (language.toLowerCase() === reposlist[i].language.trim().toLowerCase())
-            dispatch(getIssues(reposlist[i].org, reposlist[i].repo, selectedLabels[j]));
+            dispatch(
+              getIssues(reposlist[i].org, reposlist[i].repo, selectedLabels[j], access_token)
+            );
           else if (
             reposlist[i]?.topics?.trim().toLowerCase().split(' ').includes(language.toLowerCase())
           )
-            dispatch(getIssues(reposlist[i].org, reposlist[i].repo, selectedLabels[j]));
+            dispatch(
+              getIssues(reposlist[i].org, reposlist[i].repo, selectedLabels[j], access_token)
+            );
         }
       }
     }
