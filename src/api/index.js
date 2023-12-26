@@ -25,8 +25,6 @@ export const fetchIssues = async (org, repo, label) =>
   await API.get(`/repos/${org}/${repo}/issues?labels=${label}`);
 
 export const getGitHubAuthKey = async (code) =>
-  await axios.post('https://issue-finder-auth.vercel.app/api/', new URLSearchParams(code), {
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    }
+  await axios.post('https://issue-finder-auth.vercel.app/api/', {
+    code
   });
