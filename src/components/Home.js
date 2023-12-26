@@ -34,6 +34,7 @@ const Home = () => {
   );
   const { loading, loadingPercentage, menu } = useSelector((state) => state.labelsStore);
   const { issuesList } = useSelector((state) => state.issuesStore);
+  const access_token = useSelector((state) => state.githubauthStore.data?.access_token);
   function findIssues() {
     if (label === 'All') {
       dispatch(epmtyIssuesList());
@@ -57,7 +58,6 @@ const Home = () => {
           backgroundColor: darkMode ? 'white' : '#08070b',
           color: darkMode ? 'black' : 'white'
         }}>
-        <GitHubAuth />
         <div className="absolute top-8 right-8" onClick={changeDarkMode}>
           <span
             className="material-icons cursor-pointer"
@@ -127,12 +127,16 @@ const Home = () => {
             <Option value="Question">Question</Option>
             <Option value="All">All</Option>
           </Select>
-          <Button
-            variant={`${darkMode ? 'dark' : 'light'} button button-green w-full h-15`}
-            disabled={loading}
-            onClick={() => findIssues()}>
-            {label === 'All' ? 'Load Labels' : 'Find Issues'}
-          </Button>
+          {access_token ? (
+            <Button
+              variant={`${darkMode ? 'dark' : 'light'} button button-green w-full h-15`}
+              disabled={loading}
+              onClick={() => findIssues()}>
+              {label === 'All' ? 'Load Labels' : 'Find Issues'}
+            </Button>
+          ) : (
+            <GitHubAuth />
+          )}
           <Select
             variant="static"
             label="Language / Framework"

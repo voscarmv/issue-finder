@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getGithubAuthKey } from '../actions';
 import Button from 'react-bootstrap/Button';
 
@@ -9,6 +9,7 @@ const redirectUri = process.env.REACT_APP_GITHUB_REDIRECT_URI;
 const authorizationEndpoint = 'https://github.com/login/oauth/authorize';
 
 const GitHubAuth = () => {
+  const { loading } = useSelector((state) => state.githubauthStore);
   const dispatch = useDispatch();
   useEffect(() => {
     const handleGitHubCallback = () => {
@@ -36,8 +37,10 @@ const GitHubAuth = () => {
   };
 
   return (
-    <Button className="bg-white text-black">
-      <button onClick={getGitHubAccessToken}>Sign in with GitHub</button>
+    <Button className="bg-white text-black" disabled={loading}>
+      <button onClick={getGitHubAccessToken}>
+        {loading ? 'Loading...' : 'Sign in with GitHub'}
+      </button>
     </Button>
   );
 };
