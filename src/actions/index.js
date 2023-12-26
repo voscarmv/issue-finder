@@ -14,12 +14,12 @@ import {
   GET_GITHUBAUTHKEY_FAIL
 } from '../constants/githubAuthConstants';
 
-export const getIssues = (org, repo, label) => async (dispatch) => {
+export const getIssues = (org, repo, label, access_token) => async (dispatch) => {
   dispatch({
     type: issue.GET_ISSUES_REQUEST
   });
   try {
-    const { data } = await api.fetchIssues(org, repo, label);
+    const { data } = await api.fetchIssues(org, repo, label, access_token);
     dispatch({
       type: issue.GET_ISSUES_SUCCESS,
       payload: data
@@ -78,13 +78,13 @@ export const setLanguage = (language) => (dispatch) => {
   });
 };
 
-export const rawLabels = async (repos, dispatch) => {
+export const rawLabels = async (repos, dispatch, access_token) => {
   let rawdata = [];
   let labels;
   for (let i = 0; i < repos.length; i++) {
     const item = repos[i];
     try {
-      labels = await api.fetchLabels(item.org, item.repo);
+      labels = await api.fetchLabels(item.org, item.repo, access_token);
     } catch (e) {
       console.error(e);
     }
@@ -100,7 +100,7 @@ export const rawLabels = async (repos, dispatch) => {
   return rawdata;
 };
 
-export const getLabels = (repos, language) => async (dispatch, getState) => {
+export const getLabels = (repos, language, access_token) => async (dispatch, getState) => {
   if (repos === undefined) return;
   dispatch({
     type: label.GET_LABELS_REQUEST,
@@ -124,7 +124,7 @@ export const getLabels = (repos, language) => async (dispatch, getState) => {
     const localData = localStorageObj?.labels;
     let data = '';
     if (localData) data = localData;
-    else data = await rawLabels(repos, dispatch); // if label list is not present in local storage than get fresh list of labels.
+    else data = await rawLabels(repos, dispatch, access_token); // if label list is not present in local storage than get fresh list of labels.
     dispatch({
       type: label.GET_LABELS_SUCCESS,
       payload: data
