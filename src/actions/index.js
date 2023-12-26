@@ -8,6 +8,12 @@ import {
   EMPTY_SELECTED_LABELS
 } from '../constants/selectedLabelsConstants';
 
+import {
+  GET_GITHUBAUTHKEY_REQUEST,
+  GET_GITHUBAUTHKEY_SUCCESS,
+  GET_GITHUBAUTHKEY_FAIL
+} from '../constants/githubAuthConstants';
+
 export const getIssues = (org, repo, label) => async (dispatch) => {
   dispatch({
     type: issue.GET_ISSUES_REQUEST
@@ -21,6 +27,24 @@ export const getIssues = (org, repo, label) => async (dispatch) => {
   } catch (e) {
     dispatch({
       type: issue.GET_ISSUES_FAIL,
+      error: e.message
+    });
+  }
+};
+
+export const getGithubAuthKey = (code) => async (dispatch) => {
+  dispatch({
+    type: GET_GITHUBAUTHKEY_REQUEST
+  });
+  try {
+    const data = await api.getGitHubAuthKey(code);
+    dispatch({
+      type: GET_GITHUBAUTHKEY_SUCCESS,
+      payload: data
+    });
+  } catch (e) {
+    dispatch({
+      type: GET_GITHUBAUTHKEY_FAIL,
       error: e.message
     });
   }
