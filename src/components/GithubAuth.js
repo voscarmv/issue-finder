@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Button from 'react-bootstrap/Button';
 
 const clientId = process.env.REACT_APP_GITHUB_CLIENT_ID;
 const redirectUri = process.env.REACT_APP_GITHUB_REDIRECT_URI;
@@ -32,10 +33,9 @@ const GitHubAuth = () => {
   };
 
   return (
-    <div className="bg-white text-black">
-      <h1>GitHub Authentication</h1>
+    <Button className="bg-white text-black">
       <button onClick={getGitHubAccessToken}>Sign in with GitHub</button>
-    </div>
+    </Button>
   );
 };
 
