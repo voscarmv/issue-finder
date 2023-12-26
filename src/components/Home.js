@@ -13,6 +13,7 @@ import {
   toggleLabelList,
   setLanguage
 } from '../actions';
+import GitHubAuth from './GithubAuth';
 
 const Home = () => {
   const [label, setLabel] = useState('Good First Issue');
@@ -33,6 +34,7 @@ const Home = () => {
   );
   const { loading, loadingPercentage, menu } = useSelector((state) => state.labelsStore);
   const { issuesList } = useSelector((state) => state.issuesStore);
+  const access_token = useSelector((state) => state.githubauthStore.data?.access_token);
   function findIssues() {
     if (label === 'All') {
       dispatch(epmtyIssuesList());
@@ -125,12 +127,16 @@ const Home = () => {
             <Option value="Question">Question</Option>
             <Option value="All">All</Option>
           </Select>
-          <Button
-            variant={`${darkMode ? 'dark' : 'light'} button button-green w-full h-15`}
-            disabled={loading}
-            onClick={() => findIssues()}>
-            {label === 'All' ? 'Load Labels' : 'Find Issues'}
-          </Button>
+          {access_token ? (
+            <Button
+              variant={`${darkMode ? 'dark' : 'light'} button button-green w-full h-15`}
+              disabled={loading}
+              onClick={() => findIssues()}>
+              {label === 'All' ? 'Load Labels' : 'Find Issues'}
+            </Button>
+          ) : (
+            <GitHubAuth darkMode={darkMode} />
+          )}
           <Select
             variant="static"
             label="Language / Framework"
