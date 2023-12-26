@@ -14,7 +14,7 @@ export default function githubauth(state = {}, action) {
     case GET_GITHUBAUTHKEY_SUCCESS:
       return {
         loading: false,
-        reposlist: action.payload
+        data: action.payload.data
       };
     case GET_GITHUBAUTHKEY_FAIL:
       return {
