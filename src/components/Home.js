@@ -135,7 +135,7 @@ const Home = () => {
               {label === 'All' ? 'Load Labels' : 'Find Issues'}
             </Button>
           ) : (
-            <GitHubAuth />
+            <GitHubAuth darkMode={darkMode} />
           )}
           <Select
             variant="static"

@@ -8,7 +8,8 @@ const redirectUri = process.env.REACT_APP_GITHUB_REDIRECT_URI;
 
 const authorizationEndpoint = 'https://github.com/login/oauth/authorize';
 
-const GitHubAuth = () => {
+// eslint-disable-next-line react/prop-types
+const GitHubAuth = ({ darkMode }) => {
   const { loading } = useSelector((state) => state.githubauthStore);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -37,10 +38,11 @@ const GitHubAuth = () => {
   };
 
   return (
-    <Button className="bg-white text-black" disabled={loading}>
-      <button onClick={getGitHubAccessToken}>
-        {loading ? 'Loading...' : 'Sign in with GitHub'}
-      </button>
+    <Button
+      onClick={getGitHubAccessToken}
+      variant={`${darkMode ? 'dark' : 'light'} button button-green w-full h-15`}
+      disabled={loading}>
+      {loading ? 'Loading...' : 'Sign in with GitHub'}
     </Button>
   );
 };
