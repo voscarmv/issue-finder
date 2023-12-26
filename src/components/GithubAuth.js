@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getGithubAuthKey } from '../actions';
 import Button from 'react-bootstrap/Button';
 
 const clientId = process.env.REACT_APP_GITHUB_CLIENT_ID;
@@ -7,11 +9,12 @@ const redirectUri = process.env.REACT_APP_GITHUB_REDIRECT_URI;
 const authorizationEndpoint = 'https://github.com/login/oauth/authorize';
 
 const GitHubAuth = () => {
+  const dispatch = useDispatch();
   useEffect(() => {
     const handleGitHubCallback = () => {
       const urlParams = new URLSearchParams(window.location.search);
       const code = urlParams.get('code');
-      console.log(code);
+      if (code) dispatch(getGithubAuthKey(code));
     };
 
     // Check if the URL contains the GitHub callback parameters
