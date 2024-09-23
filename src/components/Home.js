@@ -115,17 +115,45 @@ const Home = () => {
             variant="static"
             label="Label"
             title="Issue label"
-            className={`text-${darkMode ? 'black' : 'white'} w-64`}
+            className={darkMode ? 'text-black w-64' : 'text-white w-64'}
             selected={(ele) => (ele ? ele.props.children : label)}
             disabled={loading}
             onChange={(label) => setLabel(label)}>
-            <Option value="Good First Issue">Good First Issue</Option>
-            <Option value="chore">Chore</Option>
-            <Option value="Documentation">Documentation</Option>
-            <Option value="Bug">Bug</Option>
-            <Option value="Help Wanted">Help Wanted</Option>
-            <Option value="Question">Question</Option>
-            <Option value="All">All</Option>
+            <Option
+              value="Good First Issue"
+              style={!darkMode ? { backgroundColor: 'black', borderRadius: '0' } : {}}>
+              Good First Issue
+            </Option>
+            <Option
+              value="chore"
+              style={!darkMode ? { backgroundColor: 'black', borderRadius: '0' } : {}}>
+              Chore
+            </Option>
+            <Option
+              value="Documentation"
+              style={!darkMode ? { backgroundColor: 'black', borderRadius: '0' } : {}}>
+              Documentation
+            </Option>
+            <Option
+              value="Bug"
+              style={!darkMode ? { backgroundColor: 'black', borderRadius: '0' } : {}}>
+              Bug
+            </Option>
+            <Option
+              value="Help Wanted"
+              style={!darkMode ? { backgroundColor: 'black', borderRadius: '0' } : {}}>
+              Help Wanted
+            </Option>
+            <Option
+              value="Question"
+              style={!darkMode ? { backgroundColor: 'black', borderRadius: '0' } : {}}>
+              Question
+            </Option>
+            <Option
+              value="All"
+              style={!darkMode ? { backgroundColor: 'black', borderRadius: '0' } : {}}>
+              All
+            </Option>
           </Select>
           {access_token ? (
             <Button
@@ -144,16 +172,56 @@ const Home = () => {
             className={`text-${darkMode ? 'black' : 'white'}`}
             selected={(ele) => (ele ? ele.props.children : lang)}
             onChange={(language) => setLang(language)}>
-            <Option value="javascript">JavaScript</Option>
-            <Option value="react">React</Option>
-            <Option value="vuejs">Vuejs</Option>
-            <Option value="ruby">Ruby</Option>
-            <Option value="rails">Rails</Option>
-            <Option value="typescript">TypeScript</Option>
-            <Option value="firebase">Firebase</Option>
-            <Option value="java">Java</Option>
-            <Option value="python">Python</Option>
-            <Option value="c++">C++</Option>
+            <Option
+              value="javascript"
+              style={!darkMode ? { backgroundColor: 'black', borderRadius: '0' } : {}}>
+              JavaScript
+            </Option>
+            <Option
+              value="react"
+              style={!darkMode ? { backgroundColor: 'black', borderRadius: '0' } : {}}>
+              React
+            </Option>
+            <Option
+              value="vuejs"
+              style={!darkMode ? { backgroundColor: 'black', borderRadius: '0' } : {}}>
+              Vuejs
+            </Option>
+            <Option
+              value="ruby"
+              style={!darkMode ? { backgroundColor: 'black', borderRadius: '0' } : {}}>
+              Ruby
+            </Option>
+            <Option
+              value="rails"
+              style={!darkMode ? { backgroundColor: 'black', borderRadius: '0' } : {}}>
+              Rails
+            </Option>
+            <Option
+              value="typescript"
+              style={!darkMode ? { backgroundColor: 'black', borderRadius: '0' } : {}}>
+              TypeScript
+            </Option>
+            <Option
+              value="firebase"
+              style={!darkMode ? { backgroundColor: 'black', borderRadius: '0' } : {}}>
+              Firebase
+            </Option>
+            <Option
+              value="java"
+              style={!darkMode ? { backgroundColor: 'black', borderRadius: '0' } : {}}>
+              Java
+            </Option>
+            <Option
+              value="python"
+              style={!darkMode ? { backgroundColor: 'black', borderRadius: '0' } : {}}>
+              Python
+            </Option>
+            <Option
+              value="c++"
+              style={!darkMode ? { backgroundColor: 'black', borderRadius: '0' } : {}}>
+              C++
+            </Option>
           </Select>
         </div>
       </header>

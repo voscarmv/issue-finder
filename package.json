@@ -54,6 +54,7 @@
     ]
   },
   "devDependencies": {
+    "ajv": "^7.2.4",
     "eslint": "^8.22.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
